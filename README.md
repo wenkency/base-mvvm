@@ -42,14 +42,18 @@ implementation 'com.github.wenkency:loading:1.1.0'
 ### Application初始化
 ```
 class BaseApplication : Application() {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        // 配置加载页面，实际用自己开发的页面
-        // LoadingManager.BASE_LOADING_LAYOUT_ID = (R.layout.pager_loading)
-        // LoadingManager.BASE_RETRY_LAYOUT_ID = (R.layout.pager_retry)
-        // LoadingManager.BASE_DATA_ERROR_LAYOUT_ID = (R.layout.pager_data_error)
-        // LoadingManager.BASE_EMPTY_LAYOUT_ID = (R.layout.pager_empty)
+    override fun onCreate() {
+        super.onCreate()
+        // 配置返回按钮，其它标题配置，可以参考TitleBarConfig注释
+        // 详细项目：https://github.com/wenkency/titlebar
+        TitleBarConfig.IC_TITLE_BACK = R.mipmap.ic_title_back
+
+        // 配置加载页面，实际用自己UI设置的页面
+        // 详细项目：https://github.com/wenkency/loading
+        LoadingManager.BASE_LOADING_LAYOUT_ID = R.layout.loading_pager_empty
+        LoadingManager.BASE_RETRY_LAYOUT_ID = R.layout.loading_pager_empty
+        LoadingManager.BASE_DATA_ERROR_LAYOUT_ID = R.layout.loading_pager_empty
+        LoadingManager.BASE_EMPTY_LAYOUT_ID = R.layout.loading_pager_empty
     }
 }
 ```
