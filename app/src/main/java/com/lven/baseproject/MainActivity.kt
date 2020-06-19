@@ -2,6 +2,7 @@ package com.lven.baseproject
 
 import android.content.Intent
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import cn.carhouse.titlebar.DefTitleBar
 import com.lven.baseproject.comm.ShareActivity
@@ -33,7 +34,7 @@ class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     inner class MainClick {
-        fun click() {
+        fun click(view:View) {
             startActivity(Intent(getAppActivity(), OtherActivity::class.java))
         }
     }
