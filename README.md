@@ -30,7 +30,7 @@ android {
     }
 }
 
-implementation 'com.github.wenkency:base-mvvm:1.0.0'
+implementation 'com.github.wenkency:base-mvvm:1.1.0'
 // lifecycle扩展库
 implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 // 通用标题栏
@@ -75,7 +75,7 @@ class NormalActivity : AppActivity() {
 /**
  * MVVM用法
  */
-class MVVMActivity : BindActivity<ActivityMvvmBinding>() {
+class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("MVVM用法")
     }
@@ -84,9 +84,9 @@ class MVVMActivity : BindActivity<ActivityMvvmBinding>() {
         return R.layout.activity_mvvm
     }
 
-    override fun initViews() {
+    override fun bind(binding: ActivityMvvmBinding, viewModel: MVVMViewModel) {
         // 绑定ViewModel
-        mBinding.vm = MVVMViewModel()
+        binding.vm = viewModel
     }
 }
 
