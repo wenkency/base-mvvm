@@ -7,7 +7,7 @@ import cn.carhouse.titlebar.DefTitleBar
 import com.lven.baseproject.comm.ShareActivity
 import com.lven.baseproject.databinding.ActivityMainBinding
 
-class MainActivity : ShareActivity<ActivityMainBinding>() {
+class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("主页面")
         // 不要返回按钮
@@ -18,14 +18,16 @@ class MainActivity : ShareActivity<ActivityMainBinding>() {
         return R.layout.activity_main
     }
 
+    override fun bind(binding: ActivityMainBinding, viewModel: MainViewModel) {
+        binding.viewModel = viewModel
+        binding.click = MainClick()
+    }
+
     override fun initViews() {
-        val mainViewModel = MainViewModel()
-        mBinding.viewModel = mainViewModel
-        mBinding.click = MainClick()
         // 这里是监听通知，在OtherActivity点击的时候发生改变
         shareViewModel.shareName.observe(this, Observer {
             Log.e("TAG", "change:$it")
-            mainViewModel.name.value = it
+            viewModel.name.value = it
         })
 
     }

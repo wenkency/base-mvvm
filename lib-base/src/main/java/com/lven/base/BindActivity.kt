@@ -5,22 +5,37 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.lven.base.jetpack.BaseViewModel
+import java.lang.reflect.ParameterizedType
 
 /**
  * 使用DataBinding开发的Activity
  */
-abstract class BindActivity<T : ViewDataBinding> : AppActivity() {
+abstract class BindActivity<M : ViewModel, T : ViewDataBinding> : AppActivity() {
 
 
-    lateinit var mBinding: T
+    lateinit var binding: T
+    lateinit var viewModel: M
 
 
     override fun initContentView() {
-        mBinding = DataBindingUtil.setContentView(this, getLayoutId())
-        rootView = mBinding.root
-        mBinding.lifecycleOwner = this
+        // 这里是设置布局数据
+        binding = DataBindingUtil.setContentView(this, getLayoutId())
+        rootView = binding.root
+        binding.lifecycleOwner = this
+
+        // 这里是创建ViewModel
+        val type = javaClass.genericSuperclass as ParameterizedType
+        val viewModelClazz = type.actualTypeArguments[0] as Class<M>
+        viewModel = getViewModel(viewModelClazz)
+
+        // 子类绑定用
+        bind(binding, viewModel)
     }
 
+    /**
+     * 提供子类绑定用
+     */
+    abstract fun bind(binding: T, viewModel: M)
 
     // ===提供一些通用的方法子类用======================================================
     /**
