@@ -1,0 +1,3 @@
+include ':lib-base'
+include ':app'
+rootProject.name = "BaseProject"
