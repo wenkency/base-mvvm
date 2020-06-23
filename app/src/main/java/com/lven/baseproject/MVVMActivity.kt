@@ -16,7 +16,7 @@ class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
         return R.layout.activity_mvvm
     }
 
-    override fun bind(binding: ActivityMvvmBinding, viewModel: MVVMViewModel) {
+    override fun onBind(binding: ActivityMvvmBinding, viewModel: MVVMViewModel) {
         // 绑定ViewModel
         binding.vm = viewModel
     }

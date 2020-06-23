@@ -62,7 +62,7 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
      * 初始化Loading后调用
      */
     open fun afterInitLoading() {
-        showContent()
+        showLoading()
     }
 
     /**

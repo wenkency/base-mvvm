@@ -7,7 +7,7 @@ import cn.carhouse.titlebar.DefTitleBar
 /**
  * 使用DataBinding开发的Activity
  */
-abstract class NoLoadingTitleActivity<M : ViewModel,D : ViewDataBinding> : BindActivity<M,D>() {
+abstract class NoLoadingTitleActivity<M : ViewModel, D : ViewDataBinding> : BindActivity<M, D>() {
     override fun isNeedLoading(): Boolean {
         return false
     }

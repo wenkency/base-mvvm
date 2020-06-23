@@ -19,7 +19,7 @@ class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
         return R.layout.activity_main
     }
 
-    override fun bind(binding: ActivityMainBinding, viewModel: MainViewModel) {
+    override fun onBind(binding: ActivityMainBinding, viewModel: MainViewModel) {
         binding.viewModel = viewModel
         binding.click = MainClick()
     }
@@ -34,7 +34,7 @@ class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     inner class MainClick {
-        fun click(view:View) {
+        fun click(view: View) {
             startActivity(Intent(getAppActivity(), OtherActivity::class.java))
         }
     }

@@ -14,7 +14,7 @@ class OtherActivity : ShareActivity<OtherViewModel, ActivityOtherBinding>() {
         return R.layout.activity_other
     }
 
-    override fun bind(binding: ActivityOtherBinding, viewModel: OtherViewModel) {
+    override fun onBind(binding: ActivityOtherBinding, viewModel: OtherViewModel) {
         binding.viewModel = viewModel
         binding.click = OtherClick()
     }

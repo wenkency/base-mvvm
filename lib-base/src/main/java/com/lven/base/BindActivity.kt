@@ -28,14 +28,14 @@ abstract class BindActivity<M : ViewModel, T : ViewDataBinding> : AppActivity() 
         val viewModelClazz = type.actualTypeArguments[0] as Class<M>
         viewModel = getViewModel(viewModelClazz)
 
-        // 子类绑定用
-        bind(binding, viewModel)
+        // 绑定操作，给子类去实现
+        onBind(binding, viewModel)
     }
 
     /**
-     * 提供子类绑定用
+     * 绑定操作，给子类去实现
      */
-    abstract fun bind(binding: T, viewModel: M)
+    abstract fun onBind(binding: T, viewModel: M)
 
     // ===提供一些通用的方法子类用======================================================
     /**

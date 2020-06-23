@@ -31,7 +31,7 @@ abstract class BindFragment<M : ViewModel, T : ViewDataBinding> : AppFragment() 
         viewModel = getViewModel(viewModelClazz)
 
         // 提供子类用
-        bind(binding, viewModel)
+        onBind(binding, viewModel)
 
         return binding.root
     }
@@ -39,7 +39,7 @@ abstract class BindFragment<M : ViewModel, T : ViewDataBinding> : AppFragment() 
     /**
      * 提供子类绑定用
      */
-    abstract fun bind(binding: T, viewModel: M)
+    abstract fun onBind(binding: T, viewModel: M)
     // ===提供一些通用的方法子类用======================================================
     /**
      * 子类用
