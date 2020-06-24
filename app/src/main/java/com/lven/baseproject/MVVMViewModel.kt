@@ -5,4 +5,5 @@ import androidx.lifecycle.ViewModel
 
 class MVVMViewModel : ViewModel() {
     var name: MutableLiveData<String> = MutableLiveData("MVVM")
+
 }

@@ -29,10 +29,18 @@ android {
         dataBinding = true
     }
 }
+// MVVM基本库
+implementation 'com.github.wenkency:base-mvvm:1.2.0'
 
-implementation 'com.github.wenkency:base-mvvm:1.1.0'
 // lifecycle扩展库
-implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+def lifecycle_version = "2.3.0-alpha04"
+// ViewModel
+implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+// LiveData
+implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+// Lifecycles only (without ViewModel or LiveData)
+implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
 // 通用标题栏
 implementation 'com.github.wenkency:titlebar:1.7.0'
 // 通用加载页面布局
