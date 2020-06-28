@@ -9,6 +9,7 @@ import com.lven.baseproject.comm.ShareActivity
 import com.lven.baseproject.databinding.ActivityMainBinding
 
 class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
+
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("主页面")
         // 不要返回按钮
@@ -31,6 +32,11 @@ class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
             viewModel.name.value = it
         })
 
+    }
+
+    override fun initNet() {
+        // 模拟网络请求
+        viewModel.request()
     }
 
     inner class MainClick {

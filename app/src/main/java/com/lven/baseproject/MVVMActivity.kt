@@ -20,4 +20,8 @@ class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
         // 绑定ViewModel
         binding.vm = viewModel
     }
+
+    override fun initNet() {
+        viewModel.request()
+    }
 }

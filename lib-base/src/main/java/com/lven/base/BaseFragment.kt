@@ -8,15 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
+import com.lven.base.jetpack.BaseLifecycleObserver
 
 /**
  * Fragment公共类
  */
 abstract class BaseFragment : Fragment() {
     lateinit var rootView: View
+
+    // 是不是第一次加载
+    private var isFirstLoaded = true
     private var isInit = false
-    private var isLoaded = false
+
     lateinit var activity: Activity
+
+    private var parent: FrameLayout? = null
 
     final override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -42,45 +49,46 @@ abstract class BaseFragment : Fragment() {
         if (isInit) {
             return
         }
-        isInit = true
         initViews()
         initLoading()
-        initNet()
-    }
-
-    // 使用ViewPager + Fragment会调用这个方法
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        super.setUserVisibleHint(isVisibleToUser)
-        // 手动调用一下
-        lazyLoad(isVisibleToUser)
-    }
-
-    // 普通使用
-    override fun onHiddenChanged(hidden: Boolean) {
-        // 第一创建的时候不会走
-        lazyLoad(!hidden)
-    }
-
-    private fun lazyLoad(isVisible: Boolean) {
-        if (isInit && isVisible && !isLoaded) {
-            isLoaded = true
-            onLazyLoad()
-        }
-    }
-
-    /**
-     * 懒加载
-     */
-    open fun onLazyLoad() {
-
+        isInit = true
     }
 
     /**
      * 1. 初始化生命周期监听
      */
     open fun initLifecycle() {
+        // 这里来实现懒加载
+        lifecycle.addObserver(object : BaseLifecycleObserver() {
+            override fun onResume(owner: LifecycleOwner) {
+                dispatchVisible(true)
+            }
+
+            override fun onPause(owner: LifecycleOwner) {
+                dispatchVisible(false)
+            }
+        })
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        dispatchVisible(!hidden)
+    }
+
+    private fun dispatchVisible(isVisible: Boolean) {
+        if (isVisible && isFirstLoaded) {
+            isFirstLoaded = false
+            initNet()
+        }
+        onFragmentVisible(isVisible)
+    }
+
+    /**
+     * 提供给子类用
+     */
+    open fun onFragmentVisible(isVisible: Boolean) {
 
     }
+
 
     /**
      * 2. 初始化从上个页面过来的数据
@@ -92,16 +100,26 @@ abstract class BaseFragment : Fragment() {
      * 3. 初始化ContentView
      */
     private fun initContentView(): View {
+        if (parent != null) {
+            parent?.let {
+                // 这里没走，防止空，还是留着
+                if (it.parent != null) {
+                    val viewGroup = it.parent as ViewGroup
+                    viewGroup.removeView(parent)
+                }
+            }
+            return parent!!
+        }
+        parent = FrameLayout(getAppActivity())
         // 包一层，用于加载显示加载布局
-        val parent = FrameLayout(getAppActivity())
         rootView = getRootView(parent)
-        parent.addView(
+        parent?.addView(
             rootView, FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT
             )
         )
-        return parent
+        return parent!!
     }
 
     open fun getRootView(container: ViewGroup?): View {

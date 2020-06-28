@@ -32,7 +32,8 @@ public class FragmentUtils {
         } else {
             transaction.show(fragmentByTag);
         }
-        transaction.commitAllowingStateLoss();
+        transaction.commitNowAllowingStateLoss();
+
     }
 
     /**

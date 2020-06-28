@@ -21,6 +21,7 @@ abstract class BindActivity<M : ViewModel, T : ViewDataBinding> : AppActivity() 
         // 这里是设置布局数据
         binding = DataBindingUtil.setContentView(this, getLayoutId())
         rootView = binding.root
+        // 主要是双向绑定，内容变了，XML也跟着变
         binding.lifecycleOwner = this
 
         // 这里是创建ViewModel
