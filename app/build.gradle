@@ -4,13 +4,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion this.app.compileSdkVersion
+    buildToolsVersion this.app.buildToolsVersion
 
     defaultConfig {
+        minSdkVersion this.app.minSdkVersion
+        targetSdkVersion this.app.targetSdkVersion
         applicationId "com.lven.baseproject"
-        minSdkVersion 15
-        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -30,28 +30,25 @@ android {
         jvmTarget = '1.8'
     }
     // 这个是使用dataBinding
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
     }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation project(path: ':lib-base')
-    implementation 'com.github.wenkency:titlebar:1.7.0'
-    implementation 'com.github.wenkency:loading:1.1.0'
+    implementation this.depenLibs.kotlinStdlib
+    implementation this.depenLibs.coreKtx
+    implementation this.depenLibs.appcompat
+    implementation this.depenLibs.constraintlayout
+    implementation this.depenLibs.titlebar
+    implementation this.depenLibs.loading
 
-    def lifecycle_version = "2.3.0-alpha04"
-    // ViewModel
+    def lifecycle_version = "2.3.0-alpha05"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    // Lifecycles only (without ViewModel or LiveData)
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
+    implementation project(path: ':lib-base')
 
 }
