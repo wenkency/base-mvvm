@@ -30,7 +30,7 @@ android {
     }
 }
 // MVVM基本库
-implementation 'com.github.wenkency:base-mvvm:1.4.0'
+implementation 'com.github.wenkency:base-mvvm:1.5.0'
 
 // lifecycle扩展库
 def lifecycle_version = "2.3.0-alpha05"

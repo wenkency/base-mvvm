@@ -45,7 +45,15 @@ abstract class AppFragment : BaseFragment(), AppPagerListener {
      * 加载布局完成时的回调
      */
     override fun onViewLoaded(state: LoadState, view: View) {
-
+        when (state) {
+            // 重试的数据加载失败点击默认事件
+            LoadState.DATA_ERROR, LoadState.RETRY -> {
+                view.setOnClickListener {
+                    showLoading()
+                    initNet()
+                }
+            }
+        }
     }
 
     /**
