@@ -41,6 +41,8 @@ class FragmentViewPagerActivity :
                 return 4
             }
         }
+        var vm = getViewModel(FragmentTestViewModel::class.java)
+        vm.name.value="I am a name"
     }
 
     private fun getFragment(position: Int): Fragment {

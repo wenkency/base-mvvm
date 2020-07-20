@@ -4,7 +4,7 @@
     <data>
         <variable
             name="vm"
-            type="com.lven.baseproject.TestViewModel" />
+            type="com.lven.baseproject.FragmentTestViewModel" />
     </data>
 
     <FrameLayout

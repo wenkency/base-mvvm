@@ -4,7 +4,6 @@ import android.view.View
 import cn.carhouse.titlebar.DefTitleBar
 import cn.carhouse.titlebar.DefTitleBuilder
 import com.lven.loading.LoadState
-import com.lven.loading.LoadingLayout
 import com.lven.loading.LoadingManager
 import com.lven.loading.OnLoadingListener
 import com.lven.loading.listener.AppLoadingListener
@@ -34,6 +33,7 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
             titleBar!!.colorStyle(TitleBarConfig.TITLE_CONTENT_COLOR, TitleBarConfig.CONTENT_COLOR)
             // 标题字体颜色
             titleBar!!.setTitleColor(TitleBarConfig.TITLE_TEXT_COLOR)
+            titleBar!!.setRightTextColor(TitleBarConfig.TITLE_RIGHT_TEXT_COLOR)
             // 初始化设置Title
             initTitle(titleBar!!)
         }
@@ -90,7 +90,7 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
     /**
      * 加载页面状态改变时的回调
      */
-    override fun onLoadingChanged(state: LoadState, loadingLayout: LoadingLayout) {
+    override fun onLoadingChanged(state: LoadState, view: View) {
 
     }
 

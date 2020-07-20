@@ -2,14 +2,13 @@ package com.lven.base
 
 import android.view.View
 import com.lven.loading.LoadState
-import com.lven.loading.LoadingLayout
 import com.lven.loading.LoadingManager
 import com.lven.loading.OnLoadingListener
 import com.lven.loading.listener.AppLoadingListener
 import com.lven.loading.listener.AppPagerListener
 
 /**
- * 带标题和加载页面的Fragment
+ * 加载页面的Fragment
  */
 abstract class AppFragment : BaseFragment(), AppPagerListener {
 
@@ -59,7 +58,7 @@ abstract class AppFragment : BaseFragment(), AppPagerListener {
     /**
      * 加载页面状态改变时的回调
      */
-    override fun onLoadingChanged(state: LoadState, loadingLayout: LoadingLayout) {
+    override fun onLoadingChanged(state: LoadState, view: View) {
 
     }
 

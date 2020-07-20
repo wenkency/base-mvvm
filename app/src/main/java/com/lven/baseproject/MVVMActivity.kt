@@ -1,7 +1,10 @@
 package com.lven.baseproject
 
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import cn.carhouse.titlebar.DefTitleBar
 import com.lven.base.BindActivity
+import com.lven.base.jetpack.LiveDataBus
 import com.lven.baseproject.databinding.ActivityMvvmBinding
 
 /**
@@ -19,6 +22,14 @@ class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
     override fun onBind(binding: ActivityMvvmBinding, viewModel: MVVMViewModel) {
         // 绑定ViewModel
         binding.vm = viewModel
+    }
+
+    override fun initViews() {
+        // 订阅信息
+        LiveDataBus.instance.with("data", String::class.java)
+            .observe(this, Observer {
+                Toast.makeText(getAppActivity(), it, Toast.LENGTH_SHORT).show()
+            })
     }
 
     override fun initNet() {

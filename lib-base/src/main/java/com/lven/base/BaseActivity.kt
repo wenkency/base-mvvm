@@ -1,6 +1,7 @@
 package com.lven.base
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -99,4 +100,15 @@ abstract class BaseActivity : AppCompatActivity() {
         return this
     }
     // ===提供一些通用的方法子类用======================================================
+
+    /**
+     * 打开Activity
+     */
+    fun startActivity(clazz: Class<*>?, options: Bundle? = null, requestCode: Int = 0) {
+        val intent = Intent(getAppActivity(), clazz)
+        if (options != null) {
+            intent.putExtras(options)
+        }
+        startActivityForResult(intent, requestCode)
+    }
 }

@@ -2,6 +2,7 @@ package com.lven.base
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -126,6 +127,7 @@ abstract class BaseFragment : Fragment() {
         return layoutInflater.inflate(getLayoutId(), container, false)
     }
 
+
     /**
      * 3. 设置ContentView
      */
@@ -153,5 +155,22 @@ abstract class BaseFragment : Fragment() {
 
     fun getAppActivity(): Activity {
         return activity
+    }
+
+    // ===提供一些通用的方法子类用======================================================
+
+    open fun <V : View?> findViewById(id: Int): V {
+        return rootView.findViewById<V>(id)
+    }
+
+    /**
+     * 打开Activity
+     */
+    fun startActivity(clazz: Class<*>?, options: Bundle? = null, requestCode: Int = 0) {
+        val intent = Intent(getAppActivity(), clazz)
+        if (options != null) {
+            intent.putExtras(options)
+        }
+        startActivityForResult(intent, requestCode)
     }
 }

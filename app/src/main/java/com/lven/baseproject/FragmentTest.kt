@@ -1,12 +1,11 @@
 package com.lven.baseproject
 
 import android.util.Log
-import com.lven.base.AppFragment
+import androidx.lifecycle.Observer
 import com.lven.base.BindFragment
 import com.lven.baseproject.databinding.FragmentFragmentBinding
-import kotlinx.android.synthetic.main.fragment_fragment.*
 
-class FragmentTest : BindFragment<TestViewModel, FragmentFragmentBinding>() {
+class FragmentTest : BindFragment<FragmentTestViewModel, FragmentFragmentBinding>() {
 
     var position = 0
 
@@ -30,13 +29,16 @@ class FragmentTest : BindFragment<TestViewModel, FragmentFragmentBinding>() {
         Log.e("TAG", "onFragmentVisible:$isVisible:$position")
     }
 
-    override fun onBind(binding: FragmentFragmentBinding, viewModel: TestViewModel) {
+    override fun onBind(binding: FragmentFragmentBinding, viewModel: FragmentTestViewModel) {
         binding.vm = viewModel
     }
 
     override fun initViews() {
-        viewModel.name.value = "position:$position"
+        // viewModel.name.value = "position:$position"
         //tv.text = "position:$position"
+        viewModel.name.observe(this, Observer {
+            Log.e("TAG", "observe:$it:$position")
+        })
     }
 
     override fun initNet() {
