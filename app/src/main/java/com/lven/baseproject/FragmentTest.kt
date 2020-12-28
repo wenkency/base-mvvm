@@ -26,7 +26,8 @@ class FragmentTest : BindFragment<FragmentTestViewModel, FragmentFragmentBinding
 
 
     override fun onFragmentVisible(isVisible: Boolean) {
-        Log.e("TAG", "onFragmentVisible:$isVisible:$position")
+        Log.e("TAG", "onFragmentVisible:$position:$isVisible")
+        // viewModel.name.postValue("onFragmentVisible:$isVisible:$position")
     }
 
     override fun onBind(binding: FragmentFragmentBinding, viewModel: FragmentTestViewModel) {
@@ -34,8 +35,8 @@ class FragmentTest : BindFragment<FragmentTestViewModel, FragmentFragmentBinding
     }
 
     override fun initViews() {
-        // viewModel.name.value = "position:$position"
-        //tv.text = "position:$position"
+         viewModel.name.value = "position:$position"
+        // tv.text = "position:$position"
         viewModel.name.observe(this, Observer {
             Log.e("TAG", "observe:$it:$position")
         })

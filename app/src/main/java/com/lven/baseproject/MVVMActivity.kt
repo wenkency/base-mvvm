@@ -30,6 +30,10 @@ class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
             .observe(this, Observer {
                 Toast.makeText(getAppActivity(), it, Toast.LENGTH_SHORT).show()
             })
+        // 订阅网络请求。
+        viewModel.name.observe(this) {
+
+        }
     }
 
     override fun initNet() {

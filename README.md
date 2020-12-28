@@ -30,7 +30,7 @@ android {
     }
 }
 // MVVM基本库
-implementation 'com.github.wenkency:base-mvvm:1.6.0'
+implementation 'com.github.wenkency:base-mvvm:1.7.0'
 
 // lifecycle扩展库
 def lifecycle_version = "2.3.0-alpha05"
@@ -42,9 +42,11 @@ implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
 // 通用标题栏
+// https://github.com/wenkency/titlebar
 implementation 'com.github.wenkency:titlebar:1.8.0'
 // 通用加载页面布局
-implementation 'com.github.wenkency:loading:1.2.0'
+// https://github.com/wenkency/loading
+implementation 'com.github.wenkency:loading:1.3.0'
 
 ```
 ### Application初始化

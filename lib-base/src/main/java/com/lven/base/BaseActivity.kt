@@ -16,7 +16,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var rootView: View
 
-    final override fun onCreate(savedInstanceState: Bundle?) {
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 1. 初始化生命周期监听
         initLifecycle()

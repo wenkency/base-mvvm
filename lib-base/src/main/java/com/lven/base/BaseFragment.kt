@@ -22,16 +22,16 @@ abstract class BaseFragment : Fragment() {
     private var isFirstLoaded = true
     private var isInit = false
 
-    lateinit var activity: Activity
+    lateinit var mActivity: Activity
 
     private var parent: FrameLayout? = null
 
     final override fun onAttach(context: Context) {
         super.onAttach(context)
-        activity = context as Activity
+        mActivity = context as Activity
     }
 
-    final override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initLifecycle()
         initData()
@@ -154,7 +154,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     fun getAppActivity(): Activity {
-        return activity
+        return mActivity
     }
 
     // ===提供一些通用的方法子类用======================================================

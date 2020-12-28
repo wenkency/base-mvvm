@@ -19,6 +19,6 @@
             android:layout_gravity="center"
             android:text="@{vm.name}"
             android:textColor="@color/colorPrimary"
-            android:textSize="50dp" />
+            android:textSize="20dp" />
     </FrameLayout>
 </layout>

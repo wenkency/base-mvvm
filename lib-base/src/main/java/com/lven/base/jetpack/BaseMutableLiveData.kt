@@ -10,7 +10,7 @@ import java.lang.reflect.Method
 /**
  * 第一次订阅不会加载
  */
-class BaseMutableLiveData<T> : MutableLiveData<T>() {
+class BaseMutableLiveData<T>(t: T? = null) : MutableLiveData<T>(t) {
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         super.observe(owner, observer)
         hook(observer)
@@ -20,10 +20,10 @@ class BaseMutableLiveData<T> : MutableLiveData<T>() {
         try {
             //1.得到mLastVersion
             val liveDataClass = LiveData::class.java
-            val mObserversFeild: Field = liveDataClass.getDeclaredField("mObservers")
-            mObserversFeild.isAccessible = true
+            val mObserversField: Field = liveDataClass.getDeclaredField("mObservers")
+            mObserversField.isAccessible = true
             //获取到这个成员变量的对象
-            val mObserversObject: Any = mObserversFeild.get(this)
+            val mObserversObject: Any = mObserversField.get(this)
             //得到map对应的class对象
             val mObserversClass: Class<*> = mObserversObject.javaClass
             //需要执行get方法
