@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".FragmentViewPagerActivity">
+        <activity
+            android:name=".mvptest.MvpTestActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".OtherActivity" />
-        <activity android:name=".MVVMActivity"/>
+        <activity android:name=".MVVMActivity" />
     </application>
 
 </manifest>

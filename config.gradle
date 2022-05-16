@@ -1,18 +1,9 @@
 ext {
 // 编译信息
     app = [
-            compileSdkVersion: 30,
-            buildToolsVersion: "30.0.0",
-            minSdkVersion    : 14,
-            targetSdkVersion : 30,
+            compileSdkVersion: 32,
+            minSdkVersion    : 16,
+            targetSdkVersion : 32,
             versionCode      : 47,
-    ]
-    depenLibs = [
-            kotlinStdlib    : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-            coreKtx         : 'androidx.core:core-ktx:1.3.0',
-            appcompat       : 'androidx.appcompat:appcompat:1.1.0',
-            constraintlayout: 'androidx.constraintlayout:constraintlayout:1.1.3',
-            titlebar        : 'com.github.wenkency:titlebar:1.8.0',
-            loading         : 'com.github.wenkency:loading:1.3.0',
     ]
 }

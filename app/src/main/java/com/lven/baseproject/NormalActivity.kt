@@ -7,12 +7,14 @@ import com.lven.base.AppActivity
 import com.lven.base.jetpack.LiveDataBus
 
 /**
- * 普通用法，没有DataBinding
+ * 1. 普通用法，没有DataBinding
+ * 2. 利用LiveDataBus发送数据
  */
 class NormalActivity : AppActivity() {
     override fun isNeedLoading(): Boolean {
         return false
     }
+
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("普通用法")
     }
@@ -22,9 +24,8 @@ class NormalActivity : AppActivity() {
     }
 
     fun start(view: View) {
-        // 发送一个信息
-        LiveDataBus.instance.post("data", String::class.java,"Name")
+        // 发送一个信息,如果isStick false 处理粘性数据，ture 不处理粘性数据
+        LiveDataBus.postValue("data", String::class.java, "Name", false)
         startActivity(Intent(this, MVVMActivity::class.java))
-
     }
 }

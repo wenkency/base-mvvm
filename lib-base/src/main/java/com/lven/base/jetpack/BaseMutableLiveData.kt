@@ -10,10 +10,12 @@ import java.lang.reflect.Method
 /**
  * 第一次订阅不会加载
  */
-class BaseMutableLiveData<T>(t: T? = null) : MutableLiveData<T>(t) {
+class BaseMutableLiveData<T>(t: T? = null, var isStick: Boolean = true) : MutableLiveData<T>(t) {
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         super.observe(owner, observer)
-        hook(observer)
+        if (!isStick) {
+            hook(observer)
+        }
     }
 
     private fun hook(observer: Observer<in T>) {

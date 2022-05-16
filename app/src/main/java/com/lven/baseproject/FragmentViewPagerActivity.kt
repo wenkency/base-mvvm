@@ -3,10 +3,10 @@ package com.lven.baseproject
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
 import cn.carhouse.titlebar.DefTitleBar
 import com.lven.base.BindActivity
 import com.lven.baseproject.databinding.ActivityFragmentViewPagerBinding
-import kotlinx.android.synthetic.main.activity_fragment_view_pager.*
 
 class FragmentViewPagerActivity :
     BindActivity<FragmentViewModel, ActivityFragmentViewPagerBinding>() {
@@ -29,6 +29,7 @@ class FragmentViewPagerActivity :
 
     override fun initViews() {
         // viewPager.offscreenPageLimit = 3
+        var viewPager: ViewPager = findViewById(R.id.viewPager)
         viewPager.adapter = object : FragmentPagerAdapter(
             supportFragmentManager,
             BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
@@ -42,7 +43,7 @@ class FragmentViewPagerActivity :
             }
         }
         var vm = getViewModel(FragmentTestViewModel::class.java)
-        vm.name.value="I am a name"
+        vm.name.value = "I am a name"
     }
 
     private fun getFragment(position: Int): Fragment {

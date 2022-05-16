@@ -87,13 +87,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        super.onDestroy()
         // 关闭软件盘
         KeyBordUtils.closeKeyBord(this)
-        // 处理内存泄漏
-        KeyBordUtils.fixInputMethodManagerLeak(this)
+        // 处理内存泄漏 AndroidX 里面自动处理了
+        // KeyBordUtils.fixInputMethodManagerLeak(this)
         // 清除Fragment
         FragmentUtils.removeAllFragments(supportFragmentManager)
-        super.onDestroy()
     }
 
     fun getAppActivity(): Activity {

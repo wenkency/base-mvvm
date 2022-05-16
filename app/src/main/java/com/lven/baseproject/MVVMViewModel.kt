@@ -1,13 +1,13 @@
 package com.lven.baseproject
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.lven.base.jetpack.BaseMutableLiveData
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MVVMViewModel : ViewModel() {
-    var name: MutableLiveData<String> = MutableLiveData("MVVM")
+    var name: BaseMutableLiveData<String> = BaseMutableLiveData("MVVM")
     fun request() {
         viewModelScope.launch {
             delay(2000)

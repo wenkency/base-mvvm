@@ -8,7 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout
  * 自定义一些功能，也可以参考TextViewBindingAdapter
  */
 class DrawerLayoutAdapter {
-    companion object {
+    /*companion object {
         @JvmStatic
         @BindingAdapter("app:isOpenDrawer")
         fun isOpenDrawer(drawerLayout: DrawerLayout, isOpen: Boolean) {
@@ -18,5 +18,5 @@ class DrawerLayoutAdapter {
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
         }
-    }
+    }*/
 }

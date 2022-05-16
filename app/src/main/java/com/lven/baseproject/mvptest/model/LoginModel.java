@@ -6,7 +6,7 @@ import com.lven.base.mvp.core.IModel;
 public class LoginModel implements IModel {
     public String getText() {
 
-        return "Text";
+        return "Login Model Text";
     }
 }
 
