@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lven.baseproject">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -12,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".mvptest.MvpTestActivity"
+            android:name=".NetMvvmActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

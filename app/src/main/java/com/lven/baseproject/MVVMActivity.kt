@@ -8,6 +8,7 @@ import com.lven.baseproject.databinding.ActivityMvvmBinding
 
 /**
  * MVVM用法
+ * 1.
  */
 class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
     override fun initTitle(titleBar: DefTitleBar) {

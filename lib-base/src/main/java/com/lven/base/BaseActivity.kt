@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import com.lven.base.jetpack.BaseLifecycleObserver
 import com.lven.base.utils.FragmentUtils
 import com.lven.base.utils.KeyBordUtils
 
@@ -16,7 +18,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var rootView: View
 
-     override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 1. 初始化生命周期监听
         initLifecycle()
@@ -38,6 +40,13 @@ abstract class BaseActivity : AppCompatActivity() {
      * 1. 初始化生命周期监听
      */
     open fun initLifecycle() {
+        // 这里是自动关闭软件键盘
+        lifecycle.addObserver(object : BaseLifecycleObserver() {
+            override fun onDestroy(owner: LifecycleOwner) {
+                super.onDestroy(owner)
+                KeyBordUtils.closeKeyBord(getAppActivity())
+            }
+        })
     }
 
     /**

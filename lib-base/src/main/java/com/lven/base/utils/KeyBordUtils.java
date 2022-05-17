@@ -9,8 +9,6 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
-import java.lang.reflect.Field;
-
 /**
  * 键盘工具类
  * 1. 打开键盘
@@ -27,44 +25,10 @@ public class KeyBordUtils {
         }
         View view = activity.getCurrentFocus();
         if (view instanceof TextView) {
-            InputMethodManager mInputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            mInputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+            closeKeyBord(view);
         }
     }
 
-    public final static void fixInputMethodManagerLeak(Activity activity) {
-        if (activity == null) {
-            return;
-        }
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm == null) {
-            return;
-        }
-        String[] arr = new String[]{"mCurRootView", "mServedView", "mNextServedView"};
-        Field field = null;
-        Object objGet = null;
-        for (int i = 0; i < arr.length; i++) {
-            try {
-                String param = arr[i];
-                field = imm.getClass().getDeclaredField(param);
-                if (field.isAccessible() == false) {
-                    field.setAccessible(true);
-                }
-                objGet = field.get(imm);
-                if (objGet != null && objGet instanceof View) {
-                    View view = (View) objGet;
-                    // 被InputMethodManager持有引用的context是想要目标销毁的
-                    if (view.getContext() == activity) {
-                        field.set(imm, null); // 置空,破坏掉path to gc节点
-                    } else {
-                        break;
-                    }
-                }
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     /**
      * 关闭软键盘

@@ -10,12 +10,8 @@ import androidx.lifecycle.ViewModelStoreOwner
 /**
  * 数据共享用
  */
-class BaseViewModel private constructor() : ViewModelStoreOwner {
-    companion object {
-        val instance by lazy {
-            BaseViewModel()
-        }
-    }
+object BaseViewModel : ViewModelStoreOwner {
+
 
     private var viewModelStore: ViewModelStore? = null
     private var factory: ViewModelProvider.Factory? = null
@@ -39,5 +35,10 @@ class BaseViewModel private constructor() : ViewModelStoreOwner {
 
     fun <T : ViewModel> getViewModel(activity: Activity, clazz: Class<T>): T {
         return getViewModelProvider(activity).get(clazz)
+    }
+
+    fun clear() {
+        viewModelStore?.clear()
+        factory = null
     }
 }

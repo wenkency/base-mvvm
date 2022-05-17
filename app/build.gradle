@@ -63,4 +63,16 @@ dependencies {
 
     implementation project(path: ':lib-base')
 
+    // ===============网络相关
+    implementation 'com.github.wenkency:kotlin-retrofit:2.5.0'
+    // retrofit + okhttp + rxjava3
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.okhttp3:okhttp:4.9.2"
+    implementation "com.squareup.okio:okio:2.10.0"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.9'
+    // ===============网络相关
+
 }

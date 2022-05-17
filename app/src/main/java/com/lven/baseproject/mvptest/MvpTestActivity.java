@@ -18,7 +18,7 @@ import java.util.List;
 import cn.carhouse.titlebar.DefTitleBar;
 
 /**
- * MVP测试类
+ * MVP写法
  */
 public class MvpTestActivity extends MvpActivity<MainPresenter> implements IMainView, ILoginView {
 

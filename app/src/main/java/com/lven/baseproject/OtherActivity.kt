@@ -5,6 +5,9 @@ import cn.carhouse.titlebar.DefTitleBar
 import com.lven.baseproject.comm.ShareActivity
 import com.lven.baseproject.databinding.ActivityOtherBinding
 
+/**
+ * Android ViewModel演示
+ */
 class OtherActivity : ShareActivity<OtherViewModel, ActivityOtherBinding>() {
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("Other")
@@ -14,6 +17,9 @@ class OtherActivity : ShareActivity<OtherViewModel, ActivityOtherBinding>() {
         return R.layout.activity_other
     }
 
+    override fun isAndroidViewModel(): Boolean {
+        return true
+    }
     override fun onBind(binding: ActivityOtherBinding, viewModel: OtherViewModel) {
         binding.viewModel = viewModel
         binding.click = OtherClick()
@@ -24,6 +30,7 @@ class OtherActivity : ShareActivity<OtherViewModel, ActivityOtherBinding>() {
             // 点击更改共享数据
             shareViewModel.shareName.value = "change text form other activity"
             viewModel.name.value = "change main text"
+            viewModel.print()
             Toast.makeText(getAppActivity(),"change",Toast.LENGTH_SHORT).show()
         }
     }
