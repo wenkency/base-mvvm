@@ -11,5 +11,16 @@ import com.lven.retrofit.callback.BeanCallback
 class NetViewModel : ViewModel() {
     var text = MutableLiveData("")
 
-
+    /**
+     * 点击事件
+     */
+    fun requestNet() {
+        // 网络请求
+        RetrofitPresenter.post(null, "post", object : BeanCallback<String>() {
+            override fun onSucceed(t: String) {
+                // 更新UI
+                text.postValue(t)
+            }
+        })
+    }
 }

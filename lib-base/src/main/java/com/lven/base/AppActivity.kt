@@ -30,12 +30,15 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
                 .setBackImageFilterColor(TitleBarConfig.IC_TITLE_BACK_FILTER_COLOR)
                 .build()
             // 主题风格
-            titleBar!!.colorStyle(TitleBarConfig.TITLE_CONTENT_COLOR, TitleBarConfig.CONTENT_COLOR)
-            // 标题字体颜色
-            titleBar!!.setTitleColor(TitleBarConfig.TITLE_TEXT_COLOR)
-            titleBar!!.setRightTextColor(TitleBarConfig.TITLE_RIGHT_TEXT_COLOR)
-            // 初始化设置Title
-            initTitle(titleBar!!)
+            titleBar?.let {
+                it.colorStyle(TitleBarConfig.TITLE_CONTENT_COLOR, TitleBarConfig.CONTENT_COLOR)
+                // 标题字体颜色
+                it.setTitleColor(TitleBarConfig.TITLE_TEXT_COLOR)
+                it.setRightTextColor(TitleBarConfig.TITLE_RIGHT_TEXT_COLOR)
+                // 初始化设置Title
+                initTitle(it)
+            }
+
         }
     }
 
@@ -46,7 +49,7 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
         return true
     }
 
-    abstract fun initTitle(titleBar: DefTitleBar);
+    abstract fun initTitle(titleBar: DefTitleBar)
 
     /**
      * 6. 初始化Loading
