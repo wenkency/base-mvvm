@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.lven.baseproject.OtherViewModel" />
+            type="com.lven.baseproject.viewmodel.OtherViewModel" />
 
         <variable
             name="click"

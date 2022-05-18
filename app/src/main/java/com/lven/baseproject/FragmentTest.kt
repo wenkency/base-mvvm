@@ -2,8 +2,9 @@ package com.lven.baseproject
 
 import android.util.Log
 import androidx.lifecycle.Observer
-import com.lven.base.BindFragment
+import com.base.BindFragment
 import com.lven.baseproject.databinding.FragmentFragmentBinding
+import com.lven.baseproject.viewmodel.FragmentTestViewModel
 
 class FragmentTest : BindFragment<FragmentTestViewModel, FragmentFragmentBinding>() {
 

@@ -2,7 +2,7 @@ ext {
 // 编译信息
     app = [
             compileSdkVersion: 32,
-            minSdkVersion    : 16,
+            minSdkVersion    : 14,
             targetSdkVersion : 32,
             versionCode      : 47,
     ]

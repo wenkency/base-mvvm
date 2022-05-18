@@ -30,7 +30,7 @@ android {
     }
 }
 // MVVM基本库
-implementation 'com.github.wenkency:base-mvvm:1.8.0'
+implementation 'com.github.wenkency:base-mvvm:1.9.0'
 
 // lifecycle扩展库
 def lifecycle_version = "2.4.1"
@@ -41,10 +41,10 @@ implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
 // 通用标题栏
 // https://github.com/wenkency/titlebar
-implementation 'com.github.wenkency:titlebar:1.8.0'
+implementation 'com.github.wenkency:titlebar:2.0.5'
 // 通用加载页面布局
 // https://github.com/wenkency/loading
-implementation 'com.github.wenkency:loading:1.3.0'
+implementation 'com.github.wenkency:loading:1.5.0'
 
 ```
 
@@ -181,9 +181,7 @@ public class MvpTestActivity extends MvpActivity<MainPresenter> implements IMain
 ### 注解不能被混淆
 
 ```
--keepattributes *Annotation*
--keepclassmembers class * {
-@com.lven.base.mvp.inject.InjectPresenter <fields>;
+-keep class * {
+@com.base.mvp.inject.InjectPresenter <fields>;
 }
--keep public class * extends com.lven.base.mvp.impl.BasePresenter
 ```

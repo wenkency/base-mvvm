@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import cn.carhouse.titlebar.DefTitleBar
-import com.lven.base.BindActivity
+import com.base.BindActivity
 import com.lven.baseproject.databinding.ActivityFragmentViewPagerBinding
+import com.lven.baseproject.viewmodel.FragmentTestViewModel
+import com.lven.baseproject.viewmodel.FragmentViewModel
 
 class FragmentViewPagerActivity :
     BindActivity<FragmentViewModel, ActivityFragmentViewPagerBinding>() {

@@ -2,6 +2,6 @@
 
 -keepattributes *Annotation*
 -keepclassmembers class * {
-@com.lven.base.mvp.inject.InjectPresenter <fields>;
+@com.base.mvp.inject.InjectPresenter <fields>;
 }
--keep public class * extends com.lven.base.mvp.impl.BasePresenter
+-keep public class * extends com.base.mvp.impl.BasePresenter

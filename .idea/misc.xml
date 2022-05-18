@@ -12,6 +12,10 @@
         <entry key="..\:/AndroidStudio/BaseMvvm/app/src/main/res/layout/activity_net.xml" value="0.19739583333333333" />
         <entry key="..\:/AndroidStudio/BaseMvvm/app/src/main/res/layout/activity_normal.xml" value="0.22291666666666668" />
         <entry key="..\:/AndroidStudio/BaseMvvm/app/src/main/res/layout/activity_other.xml" value="0.196875" />
+        <entry key="..\:/AndroidStudio/BaseMvvm/app/src/main/res/layout/activity_test.xml" value="0.215625" />
+        <entry key="..\:/AndroidStudio/BaseMvvm/app/src/main/res/layout/loading_pager_data_error.xml" value="0.215625" />
+        <entry key="..\:/AndroidStudio/BaseMvvm/app/src/main/res/layout/loading_pager_error.xml" value="0.215625" />
+        <entry key="..\:/AndroidStudio/BaseMvvm/app/src/main/res/layout/loading_pager_loading.xml" value="0.215625" />
       </map>
     </option>
   </component>

@@ -2,11 +2,11 @@ package com.lven.baseproject
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import cn.carhouse.titlebar.DefTitleBar
-import com.lven.base.BindActivity
-import com.lven.base.utils.FragmentUtils
+import com.base.BindActivity
+import com.base.utils.FragmentUtils
 import com.lven.baseproject.databinding.ActivityFragmentBinding
+import com.lven.baseproject.viewmodel.FragmentViewModel
 
 class FragmentActivity : BindActivity<FragmentViewModel, ActivityFragmentBinding>() {
     var map = mutableMapOf<Int, Fragment>()

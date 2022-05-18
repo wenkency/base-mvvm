@@ -1,7 +1,7 @@
 package com.lven.baseproject.mvptest.presenter;
 
 
-import com.lven.base.mvp.impl.BasePresenter;
+import com.base.mvp.impl.BasePresenter;
 import com.lven.baseproject.mvptest.model.LoginModel;
 import com.lven.baseproject.mvptest.view.ILoginView;
 

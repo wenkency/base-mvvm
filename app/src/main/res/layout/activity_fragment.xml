@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.lven.baseproject.FragmentViewModel" />
+            type="com.lven.baseproject.viewmodel.FragmentViewModel" />
 
         <variable
             name="click"

@@ -2,9 +2,10 @@ package com.lven.baseproject
 
 import android.widget.Toast
 import cn.carhouse.titlebar.DefTitleBar
-import com.lven.base.BindActivity
-import com.lven.base.jetpack.LiveDataBus
+import com.base.BindActivity
+import com.base.jetpack.LiveDataBus
 import com.lven.baseproject.databinding.ActivityMvvmBinding
+import com.lven.baseproject.viewmodel.MVVMViewModel
 
 /**
  * MVVM用法

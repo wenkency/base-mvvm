@@ -20,7 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keepattributes *Annotation*
--keepclassmembers class * {
-@com.lven.base.mvp.inject.InjectPresenter <fields>;
+-keep class * {
+@com.base.mvp.inject.InjectPresenter <fields>;
 }

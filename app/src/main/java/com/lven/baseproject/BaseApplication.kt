@@ -1,7 +1,8 @@
 package com.lven.baseproject
 
 import android.app.Application
-import com.lven.base.TitleBarConfig
+import com.base.TitleBarConfig
+import com.lven.loading.LoadingManager
 import com.lven.retrofit.config.RestConfig
 
 class BaseApplication : Application() {
@@ -13,10 +14,10 @@ class BaseApplication : Application() {
 
         // 配置加载页面，实际用自己UI设置的页面
         // https://github.com/wenkency/loading
-        /*LoadingManager.BASE_LOADING_LAYOUT_ID = R.layout.loading_pager_empty
-        LoadingManager.BASE_RETRY_LAYOUT_ID = R.layout.loading_pager_empty
-        LoadingManager.BASE_DATA_ERROR_LAYOUT_ID = R.layout.loading_pager_empty
-        LoadingManager.BASE_EMPTY_LAYOUT_ID = R.layout.loading_pager_empty*/
+        LoadingManager.BASE_LOADING_LAYOUT_ID = R.layout.loading_pager_loading
+        LoadingManager.BASE_RETRY_LAYOUT_ID = R.layout.loading_pager_error
+        LoadingManager.BASE_DATA_ERROR_LAYOUT_ID = R.layout.loading_pager_data_error
+        LoadingManager.BASE_EMPTY_LAYOUT_ID = R.layout.loading_pager_empty
 
 
         // 1. 初始化

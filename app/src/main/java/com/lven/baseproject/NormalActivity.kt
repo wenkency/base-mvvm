@@ -3,8 +3,8 @@ package com.lven.baseproject
 import android.content.Intent
 import android.view.View
 import cn.carhouse.titlebar.DefTitleBar
-import com.lven.base.AppActivity
-import com.lven.base.jetpack.LiveDataBus
+import com.base.AppActivity
+import com.base.jetpack.LiveDataBus
 
 /**
  * 1. 普通用法，没有DataBinding

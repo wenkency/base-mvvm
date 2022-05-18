@@ -7,9 +7,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import cn.carhouse.titlebar.DefTitleBar
-import com.lven.base.jetpack.BaseLifecycleObserver
+import com.base.jetpack.BaseLifecycleObserver
 import com.lven.baseproject.comm.ShareActivity
 import com.lven.baseproject.databinding.ActivityMainBinding
+import com.lven.baseproject.viewmodel.MainViewModel
 
 class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
 

@@ -4,6 +4,7 @@ import android.widget.Toast
 import cn.carhouse.titlebar.DefTitleBar
 import com.lven.baseproject.comm.ShareActivity
 import com.lven.baseproject.databinding.ActivityOtherBinding
+import com.lven.baseproject.viewmodel.OtherViewModel
 
 /**
  * Android ViewModel演示

@@ -2,7 +2,7 @@ package com.lven.baseproject.comm
 
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
-import com.lven.base.BindActivity
+import com.base.BindActivity
 
 /**
  * 数据共享的Activity

@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lven.base.mvp.MvpActivity;
-import com.lven.base.mvp.inject.InjectPresenter;
+import com.base.mvp.MvpActivity;
+import com.base.mvp.inject.InjectPresenter;
 import com.lven.baseproject.R;
 import com.lven.baseproject.mvptest.presenter.LoginPresenter;
 import com.lven.baseproject.mvptest.presenter.MainPresenter;
