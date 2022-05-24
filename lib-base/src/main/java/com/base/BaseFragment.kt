@@ -33,7 +33,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initLifecycle()
+        registerLifecycle()
         initData()
     }
 
@@ -58,7 +58,7 @@ abstract class BaseFragment : Fragment() {
     /**
      * 1. 初始化生命周期监听
      */
-    open fun initLifecycle() {
+    private fun registerLifecycle() {
         // 这里来实现懒加载
         lifecycle.addObserver(object : BaseLifecycleObserver() {
             override fun onResume(owner: LifecycleOwner) {
@@ -67,8 +67,14 @@ abstract class BaseFragment : Fragment() {
 
             override fun onPause(owner: LifecycleOwner) {
                 dispatchVisible(false)
+                dismissDialog(true)
             }
         })
+        initLifecycle()
+    }
+
+    open fun initLifecycle() {
+
     }
 
     override fun onHiddenChanged(hidden: Boolean) {
@@ -158,6 +164,17 @@ abstract class BaseFragment : Fragment() {
     }
 
     // ===提供一些通用的方法子类用======================================================
+
+    // 每个项目显示的Dialog不一样，交给子类实现
+    open fun showDialog() {
+        BaseConfig.showDialog(getAppActivity())
+    }
+
+    // 每个项目显示的Dialog不一样，交给子类实现
+    open fun dismissDialog(isDestroy: Boolean = false) {
+        BaseConfig.dismissDialog(isDestroy)
+    }
+
 
     open fun <V : View?> findViewById(id: Int): V {
         return rootView.findViewById<V>(id)

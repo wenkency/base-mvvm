@@ -3,16 +3,19 @@ package com.lven.baseproject
 import cn.carhouse.titlebar.DefTitleBar
 import com.base.BindActivity
 import com.lven.baseproject.databinding.ActivityNetBinding
+import com.lven.baseproject.viewmodel.NetPresenterViewModel
 import com.lven.baseproject.viewmodel.NetViewModel
-import com.lven.retrofit.RetrofitPresenter
-import com.lven.retrofit.callback.BeanCallback
-import com.lven.retrofit.core.RestClient
 
 /**
  * 网络测试
- * 结合了MVVM MVP写法
+ * 结合多个ViewModel的写法
+ * 1.一个ViewModel负责UI显示
+ * 2.一个ViewModel负责数据请求
  */
 class NetMvvmActivity : BindActivity<NetViewModel, ActivityNetBinding>() {
+    // 数据请求的ViewModel
+    private lateinit var presenter: NetPresenterViewModel
+
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("网络测试")
     }
@@ -23,26 +26,29 @@ class NetMvvmActivity : BindActivity<NetViewModel, ActivityNetBinding>() {
 
     override fun onBind(binding: ActivityNetBinding, viewModel: NetViewModel) {
         binding.vm = viewModel
+        // 点击事件
+        binding.click = Click()
+        // 初始化网络请求
+        presenter = getViewModel(NetPresenterViewModel::class.java)
     }
 
-    override fun afterInitLoading() {
-        showLoading(true)
+    override fun initViews() {
+        // 网络请求数据结果
+        presenter.result.observe(this) {
+            viewModel.text.value = it
+        }
     }
 
     // 网络请求业务，可以看作是P层
     override fun initNet() {
         // 网络请求
-        RetrofitPresenter.post(this, "post", object : BeanCallback<String>() {
-            override fun onSucceed(t: String) {
-                showContent()
-                // 更新UI
-                viewModel.text.postValue(t)
-            }
+        presenter.requestNet(this)
+    }
 
-            override fun onError(code: Int, message: String, client: RestClient) {
-                showNetOrDataError()
-            }
-        })
+    inner class Click {
+        fun requestNet() {
+            presenter.requestNetShowDialog(this@NetMvvmActivity)
+        }
     }
 
 }

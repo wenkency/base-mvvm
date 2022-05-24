@@ -8,6 +8,9 @@
             name="vm"
             type="com.lven.baseproject.viewmodel.NetViewModel" />
 
+        <variable
+            name="click"
+            type="com.lven.baseproject.NetMvvmActivity.Click" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +30,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:onClick="@{()->vm.requestNet()}"
+            android:onClick="@{()->click.requestNet()}"
             android:text="请求网络"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />

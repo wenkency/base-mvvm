@@ -1,4 +1,4 @@
-package com.lven.baseproject.mvptest;
+package com.lven.baseproject.mvp;
 
 import android.graphics.Color;
 import android.view.View;
@@ -8,10 +8,10 @@ import android.widget.Toast;
 import com.base.mvp.MvpActivity;
 import com.base.mvp.inject.InjectPresenter;
 import com.lven.baseproject.R;
-import com.lven.baseproject.mvptest.presenter.LoginPresenter;
-import com.lven.baseproject.mvptest.presenter.MainPresenter;
-import com.lven.baseproject.mvptest.view.ILoginView;
-import com.lven.baseproject.mvptest.view.IMainView;
+import com.lven.baseproject.mvp.presenter.LoginPresenter;
+import com.lven.baseproject.mvp.presenter.MainPresenter;
+import com.lven.baseproject.mvp.view.ILoginView;
+import com.lven.baseproject.mvp.view.IMainView;
 
 import java.util.List;
 

@@ -8,9 +8,4 @@ import com.lven.baseproject.BaseApplication
 
 class OtherViewModel(application: Application) : AndroidViewModel(application) {
     var name: MutableLiveData<String> = MutableLiveData("click me")
-    var context = application
-    fun print() {
-        Log.e("TAG", "${context}")
-        Log.e("TAG", "${getApplication<BaseApplication>()}")
-    }
 }

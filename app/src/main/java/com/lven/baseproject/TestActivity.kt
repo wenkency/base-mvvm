@@ -3,6 +3,7 @@ package com.lven.baseproject
 import cn.carhouse.titlebar.DefTitleBar
 import com.base.BindActivity
 import com.lven.baseproject.databinding.ActivityTestBinding
+import com.lven.baseproject.mvp.MvpTestActivity
 
 import com.lven.baseproject.viewmodel.EmptyViewModel
 
@@ -12,6 +13,8 @@ import com.lven.baseproject.viewmodel.EmptyViewModel
 class TestActivity : BindActivity<EmptyViewModel, ActivityTestBinding>() {
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("测试")
+        // 不要返回按钮
+        //titleBar.clearBackImage()
     }
 
     override fun getLayoutId(): Int {
@@ -50,6 +53,14 @@ class TestActivity : BindActivity<EmptyViewModel, ActivityTestBinding>() {
         fun net() {
             startActivity(NetMvvmActivity::class.java)
         }
+
+        fun mvp() {
+            startActivity(MvpTestActivity::class.java)
+        }
+    }
+
+    override fun isFinishActivityAnim(): Boolean {
+        return false
     }
 
 }

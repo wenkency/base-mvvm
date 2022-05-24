@@ -26,15 +26,15 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
         // 初始化标题
         if (isNeedTitle()) {
             titleBar = DefTitleBuilder(this) // 返回按钮
-                .setBackImageRes(TitleBarConfig.IC_TITLE_BACK)
-                .setBackImageFilterColor(TitleBarConfig.IC_TITLE_BACK_FILTER_COLOR)
+                .setBackImageRes(BaseConfig.IC_TITLE_BACK)
+                .setBackImageFilterColor(BaseConfig.IC_TITLE_BACK_FILTER_COLOR)
                 .build()
             // 主题风格
             titleBar?.let {
-                it.colorStyle(TitleBarConfig.TITLE_CONTENT_COLOR, TitleBarConfig.CONTENT_COLOR)
+                it.colorStyle(BaseConfig.TITLE_CONTENT_COLOR, BaseConfig.CONTENT_COLOR)
                 // 标题字体颜色
-                it.setTitleColor(TitleBarConfig.TITLE_TEXT_COLOR)
-                it.setRightTextColor(TitleBarConfig.TITLE_RIGHT_TEXT_COLOR)
+                it.setTitleColor(BaseConfig.TITLE_TEXT_COLOR)
+                it.setRightTextColor(BaseConfig.TITLE_RIGHT_TEXT_COLOR)
                 // 初始化设置Title
                 initTitle(it)
             }
@@ -65,7 +65,6 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
      * 初始化Loading后调用，如有需要可以重写这个方法去调用showLoading()
      */
     open fun afterInitLoading() {
-        // showLoading()
         showContent()
     }
 

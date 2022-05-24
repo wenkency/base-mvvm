@@ -9,61 +9,74 @@
             type="com.lven.baseproject.TestActivity.TestClick" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="15dp"
-        tools:ignore="MissingDefaultResource">
+        android:layout_height="match_parent">
 
-        <Button
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:onClick="@{()->click.main()}"
-            android:text="Main" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            tools:ignore="MissingDefaultResource">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:onClick="@{()->click.mvvm()}"
-            android:text="mvvm" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:onClick="@{()->click.main()}"
+                android:text="Main" />
 
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:onClick="@{()->click.other()}"
-            android:text="other" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:onClick="@{()->click.fmt()}"
-            android:text="fmt" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:onClick="@{()->click.fmtViewPager()}"
-            android:text="fmtViewPager" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:onClick="@{()->click.normal()}"
-            android:text="normal" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->click.mvvm()}"
+                android:text="mvvm" />
 
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:onClick="@{()->click.net()}"
-            android:text="net" />
-    </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->click.other()}"
+                android:text="other" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->click.fmt()}"
+                android:text="fmt" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->click.fmtViewPager()}"
+                android:text="fmtViewPager" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->click.normal()}"
+                android:text="normal" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->click.net()}"
+                android:text="net" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->click.mvp()}"
+                android:text="mvp" />
+        </LinearLayout>
+    </ScrollView>
 </layout>

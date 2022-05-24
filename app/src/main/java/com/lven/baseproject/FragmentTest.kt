@@ -36,11 +36,12 @@ class FragmentTest : BindFragment<FragmentTestViewModel, FragmentFragmentBinding
     }
 
     override fun initViews() {
-         viewModel.name.value = "position:$position"
+        viewModel.name.value = "position:$position"
+        Log.e("TAG", "create:$position")
         // tv.text = "position:$position"
-        viewModel.name.observe(this, Observer {
-            Log.e("TAG", "observe:$it:$position")
-        })
+        /* viewModel.name.observe(this, Observer {
+             Log.e("TAG", "observe:$it:$position")
+         })*/
     }
 
     override fun initNet() {

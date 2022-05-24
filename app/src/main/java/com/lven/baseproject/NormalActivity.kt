@@ -25,7 +25,12 @@ class NormalActivity : AppActivity() {
 
     fun start(view: View) {
         // 发送一个信息,如果isStick false 处理粘性数据，ture 不处理粘性数据
-        LiveDataBus.postValue("data", String::class.java, "Name", false)
+        LiveDataBus.postValue("data", String::class.java, "Name", true)
         startActivity(Intent(this, MVVMActivity::class.java))
+    }
+
+    // 不清除 LiveDataBus 发送的数据
+    override fun isClearLiveData(): Boolean {
+        return false
     }
 }

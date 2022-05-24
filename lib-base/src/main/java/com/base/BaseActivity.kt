@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import com.base.jetpack.BaseLifecycleObserver
+import com.base.jetpack.LiveDataBus
 import com.base.utils.FragmentUtils
 import com.base.utils.KeyBordUtils
 
@@ -21,7 +22,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 1. 初始化生命周期监听
-        initLifecycle()
+        registerLifecycle()
         // 2. 初始化从上个页面过来的数据
         initData()
         // 3. 设置ContentView
@@ -39,16 +40,46 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 1. 初始化生命周期监听
      */
-    open fun initLifecycle() {
+    fun registerLifecycle() {
         // 这里是自动关闭软件键盘
         lifecycle.addObserver(object : BaseLifecycleObserver() {
             override fun onDestroy(owner: LifecycleOwner) {
-                KeyBordUtils.closeKeyBord(getAppActivity())
-                // 清除Fragment
-                FragmentUtils.removeAllFragments(supportFragmentManager)
+                release()
                 super.onDestroy(owner)
             }
         })
+        initLifecycle()
+    }
+
+
+    /**
+     * Activity销毁调用
+     */
+    fun release() {
+        // 关闭键盘
+        KeyBordUtils.closeKeyBord(getAppActivity())
+        // 清除Fragment
+        FragmentUtils.removeAllFragments(supportFragmentManager)
+        // 关闭Dialog
+        dismissDialog(true)
+        // 移除转输的数据
+        if (isClearLiveData()) {
+            LiveDataBus.clear()
+        }
+    }
+
+    /**
+     * 清除LiveDataBus发送的数据
+     */
+    open fun isClearLiveData(): Boolean {
+        return true
+    }
+
+    /**
+     * 1. 初始化生命周期监听
+     */
+    open fun initLifecycle() {
+
     }
 
     /**
@@ -101,7 +132,17 @@ abstract class BaseActivity : AppCompatActivity() {
     fun getAppActivity(): Activity {
         return this
     }
+
     // ===提供一些通用的方法子类用======================================================
+    // 每个项目显示的Dialog不一样，交给子类实现
+    open fun showDialog() {
+        BaseConfig.showDialog(getAppActivity())
+    }
+
+    // 每个项目显示的Dialog不一样，交给子类实现
+    open fun dismissDialog(isDestroy: Boolean = false) {
+        BaseConfig.dismissDialog(isDestroy)
+    }
 
     /**
      * 打开Activity
@@ -112,5 +153,41 @@ abstract class BaseActivity : AppCompatActivity() {
             intent.putExtras(options)
         }
         startActivityForResult(intent, requestCode)
+    }
+
+    override fun startActivityForResult(intent: Intent?, requestCode: Int, options: Bundle?) {
+        super.startActivityForResult(intent, requestCode, options)
+        // 启动页面的动画
+        if (isStartActivityAnim()) {
+            startActivityAnim()
+        }
+    }
+
+    override fun finish() {
+        super.finish()
+        // 关闭页面的动画
+        if (isFinishActivityAnim()) {
+            finishActivityAnim()
+        }
+    }
+
+    // 是否开启启动页面的动画
+    open fun isStartActivityAnim(): Boolean {
+        return true
+    }
+
+    // 可以复写这个页面改变启动动画
+    open fun startActivityAnim() {
+        overridePendingTransition(R.anim.activity_new, R.anim.activity_out)
+    }
+
+    // 是否开启关闭页面的动画
+    open fun isFinishActivityAnim(): Boolean {
+        return true
+    }
+
+    // 可以复写这个页面改变关闭动画
+    open fun finishActivityAnim() {
+        overridePendingTransition(R.anim.activity_back, R.anim.activity_finish)
     }
 }

@@ -11,7 +11,7 @@ class MVVMViewModel : ViewModel() {
     fun request() {
         viewModelScope.launch {
             delay(2000)
-            name.postValue("update")
+            name.postValue("net update")
         }
     }
 

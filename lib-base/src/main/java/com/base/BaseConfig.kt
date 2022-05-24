@@ -1,8 +1,9 @@
 package com.base
 
+import android.app.Activity
 import android.graphics.Color
 
-object TitleBarConfig {
+object BaseConfig {
     /**
      * 返回按钮，用户可以在Application更改
      */
@@ -32,4 +33,16 @@ object TitleBarConfig {
      * 标题栏的颜色
      */
     var TITLE_CONTENT_COLOR = Color.parseColor("#6200EE")
+
+    // ===================Dialog统一配置=================
+    var dialog: IDialog? = null
+
+    fun showDialog(activity: Activity) {
+        dialog?.showDialog(activity)
+    }
+
+    fun dismissDialog(isDestroy: Boolean = false) {
+        dialog?.dismissDialog(isDestroy)
+    }
+    // ===================Dialog统一配置=================
 }

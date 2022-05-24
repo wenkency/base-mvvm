@@ -1,8 +1,8 @@
-package com.lven.baseproject.mvptest.presenter;
+package com.lven.baseproject.mvp.presenter;
 
 import com.base.mvp.impl.BasePresenter;
-import com.lven.baseproject.mvptest.model.MainModel;
-import com.lven.baseproject.mvptest.view.IMainView;
+import com.lven.baseproject.mvp.model.MainModel;
+import com.lven.baseproject.mvp.view.IMainView;
 
 import java.util.List;
 

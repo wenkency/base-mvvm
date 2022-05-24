@@ -21,6 +21,7 @@ class OtherActivity : ShareActivity<OtherViewModel, ActivityOtherBinding>() {
     override fun isAndroidViewModel(): Boolean {
         return true
     }
+
     override fun onBind(binding: ActivityOtherBinding, viewModel: OtherViewModel) {
         binding.viewModel = viewModel
         binding.click = OtherClick()
@@ -30,9 +31,9 @@ class OtherActivity : ShareActivity<OtherViewModel, ActivityOtherBinding>() {
         fun click() {
             // 点击更改共享数据
             shareViewModel.shareName.value = "change text form other activity"
+            // 更改自己的显示数据
             viewModel.name.value = "change main text"
-            viewModel.print()
-            Toast.makeText(getAppActivity(),"change",Toast.LENGTH_SHORT).show()
+            Toast.makeText(getAppActivity(), "change", Toast.LENGTH_SHORT).show()
         }
     }
 

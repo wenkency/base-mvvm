@@ -1,4 +1,4 @@
-package com.lven.baseproject.mvptest.model;
+package com.lven.baseproject.mvp.model;
 
 
 import com.base.mvp.core.IModel;

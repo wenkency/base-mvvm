@@ -1,4 +1,4 @@
-package com.lven.baseproject.mvptest.view;
+package com.lven.baseproject.mvp.view;
 
 import com.base.mvp.core.IView;
 

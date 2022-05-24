@@ -40,4 +40,9 @@ class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
     override fun initNet() {
         viewModel.request()
     }
+
+    // 不清除 LiveDataBus 发送的数据
+    override fun isClearLiveData(): Boolean {
+        return false
+    }
 }

@@ -16,8 +16,6 @@ class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun initTitle(titleBar: DefTitleBar) {
         titleBar.setTitle("主页面")
-        // 不要返回按钮
-        titleBar.clearBackImage()
     }
 
     override fun getLayoutId(): Int {
@@ -30,6 +28,7 @@ class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     override fun initLifecycle() {
+        // 在这里对
         lifecycle.addObserver(object : BaseLifecycleObserver() {
             override fun onAny(owner: LifecycleOwner, event: Lifecycle.Event) {
                 Log.e("TAG", event.name)
@@ -44,7 +43,6 @@ class MainActivity : ShareActivity<MainViewModel, ActivityMainBinding>() {
             Log.e("TAG", "change:$it")
             viewModel.name.value = it
         })
-
     }
 
     override fun initNet() {
