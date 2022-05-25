@@ -4,6 +4,9 @@ import com.base.AppActivity
 import com.retrofit.callback.BeanCallback
 import com.retrofit.core.RestClient
 
+/**
+ * 这个是带Dialog的封装
+ */
 abstract class DialogCallback<T>(
     var activity: AppActivity? = null,
     var isDestroy: Boolean = false

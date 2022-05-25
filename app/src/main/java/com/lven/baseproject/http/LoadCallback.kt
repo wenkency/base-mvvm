@@ -4,6 +4,9 @@ import com.base.AppActivity
 import com.retrofit.callback.BeanCallback
 import com.retrofit.core.RestClient
 
+/**
+ * 这个是带Loading的封装
+ */
 abstract class LoadCallback<T>(
     var activity: AppActivity? = null,
     var isShowContent: Boolean = true

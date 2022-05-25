@@ -1,8 +1,7 @@
-package com.lven.baseproject.viewmodel
+package com.lven.baseproject.repository
 
 import androidx.lifecycle.MutableLiveData
 import com.base.AppActivity
-import com.lven.baseproject.comm.AutoCancelViewModel
 import com.lven.baseproject.http.DialogCallback
 import com.lven.baseproject.http.LoadCallback
 import com.retrofit.RetrofitPresenter

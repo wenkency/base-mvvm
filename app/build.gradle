@@ -28,8 +28,8 @@ android {
     }
 
     // 这个是使用dataBinding
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 }
 /*configurations.all {

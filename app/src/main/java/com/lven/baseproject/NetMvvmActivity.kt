@@ -3,8 +3,8 @@ package com.lven.baseproject
 import cn.carhouse.titlebar.DefTitleBar
 import com.base.BindActivity
 import com.lven.baseproject.databinding.ActivityNetBinding
-import com.lven.baseproject.viewmodel.NetPresenterViewModel
-import com.lven.baseproject.viewmodel.NetViewModel
+import com.lven.baseproject.repository.NetPresenterViewModel
+import com.lven.baseproject.viewmodel.NetTestViewModel
 
 /**
  * 网络测试
@@ -12,7 +12,7 @@ import com.lven.baseproject.viewmodel.NetViewModel
  * 1.一个ViewModel负责UI显示
  * 2.一个ViewModel负责数据请求
  */
-class NetMvvmActivity : BindActivity<NetViewModel, ActivityNetBinding>() {
+class NetMvvmActivity : BindActivity<NetTestViewModel, ActivityNetBinding>() {
     // 数据请求的ViewModel
     private lateinit var presenter: NetPresenterViewModel
 
@@ -24,7 +24,7 @@ class NetMvvmActivity : BindActivity<NetViewModel, ActivityNetBinding>() {
         return R.layout.activity_net
     }
 
-    override fun onBind(binding: ActivityNetBinding, viewModel: NetViewModel) {
+    override fun onBind(binding: ActivityNetBinding, viewModel: NetTestViewModel) {
         binding.vm = viewModel
         // 点击事件
         binding.click = Click()

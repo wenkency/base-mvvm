@@ -1,8 +1,12 @@
 # base-mvvm
 
-MVVM通用开发架构，适用于MVVM架构，快速开发Android项目
+* mvvm通用开发架构，适用于JetPack组件的mvvm开发框架，快速开发Android项目。
+* 同时封装了mvp基础类，也支持mvp写法，不过不建议使用，mvp写法要定义的接口太多。
+* 项目里有大量的实例，可以参考查看。
 
-核心类：BaseActivity AppActivity BindActivity BaseFragment AppFragment BindFragment
+### 核心类：
+* BaseActivity <- AppActivity <- BindActivity 
+* BaseFragment <- AppFragment <- BindFragment
 
 ### 引入
 
@@ -25,8 +29,8 @@ android {
         jvmTarget = '1.8'
     }
     // 这个是使用dataBinding
-    dataBinding{
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 }
 // MVVM基本库

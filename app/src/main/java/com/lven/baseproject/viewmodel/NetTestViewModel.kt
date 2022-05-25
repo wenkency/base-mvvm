@@ -7,6 +7,6 @@ import androidx.lifecycle.ViewModel
 /**
  * 网络请求测试
  */
-class NetViewModel : ViewModel() {
+class NetTestViewModel : ViewModel() {
     var text = MutableLiveData("")
 }
