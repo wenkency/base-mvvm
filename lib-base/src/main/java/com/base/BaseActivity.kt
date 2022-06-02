@@ -18,7 +18,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     lateinit var rootView: View
-    protected var isDestroy: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +56,6 @@ abstract class BaseActivity : AppCompatActivity() {
      * Activity销毁调用
      */
     fun release() {
-        isDestroy = true
         // 关闭键盘
         KeyBordUtils.closeKeyBord(getAppActivity())
         // 清除Fragment

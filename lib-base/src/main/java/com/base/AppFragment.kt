@@ -22,8 +22,13 @@ abstract class AppFragment : BaseFragment(), AppPagerListener {
     override fun initLoading() {
         if (isNeedLoading) {
             loadingManager = LoadingManager.generate(loadingParent, onLoadingListener)
+            onLoadingInit()
             afterInitLoading()
         }
+    }
+
+    open fun onLoadingInit() {
+
     }
 
     /**

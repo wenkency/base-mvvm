@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import com.base.utils.ViewModelUtils
+import com.base.viewmodel.DialogStateViewModel
+import com.base.viewmodel.PageStateViewModel
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -16,6 +18,28 @@ abstract class BindFragment<M : ViewModel, T : ViewDataBinding> : AppFragment() 
 
     lateinit var binding: T
     lateinit var viewModel: M
+
+    // 控制页面状态的ViewModel
+    val pageState: PageStateViewModel by lazy {
+        getViewModel(PageStateViewModel::class.java)
+    }
+    val dialogState: DialogStateViewModel by lazy {
+        getViewModel(DialogStateViewModel::class.java)
+    }
+
+    // 控制Dialog
+    override fun initLifecycle() {
+        dialogState.showDialog.observe(this) {
+            if (it) {
+                showDialog()
+            }
+        }
+        dialogState.dismissDialog.observe(this) {
+            if (it) {
+                dismissDialog(dialogState.isDestroy.value!!)
+            }
+        }
+    }
 
     /**
      * 3. 初始化ContentView
@@ -38,6 +62,39 @@ abstract class BindFragment<M : ViewModel, T : ViewDataBinding> : AppFragment() 
         onBind(binding, viewModel)
 
         return binding.root
+    }
+
+    // 这里监听页面显示状态
+    final override fun onLoadingInit() {
+        pageState.showContent.observe(this) {
+            if (it) {
+                showContent()
+            }
+        }
+        pageState.showEmpty.observe(this) {
+            if (it) {
+                showEmpty()
+            }
+        }
+        pageState.showNetOrDataError.observe(this) {
+            if (it) {
+                showNetOrDataError()
+            }
+        }
+        pageState.showLoading.observe(this) {
+            if (it) {
+                showLoading(pageState.showLoadingContent.value!!)
+            }
+        }
+        pageState.showRetry.observe(this) {
+            if (it) {
+                showRetry()
+            }
+        }
+    }
+
+    override fun afterInitLoading() {
+
     }
 
     /**

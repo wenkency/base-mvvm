@@ -11,6 +11,7 @@ import com.lven.baseproject.viewmodel.NetTestViewModel
  * 结合多个ViewModel的写法
  * 1.一个ViewModel负责UI显示
  * 2.一个ViewModel负责数据请求
+ * 3. 还添加网络请求、加载页面、统一Dialog显示
  */
 class NetMvvmActivity : BindActivity<NetTestViewModel, ActivityNetBinding>() {
     // 数据请求的ViewModel
@@ -41,13 +42,14 @@ class NetMvvmActivity : BindActivity<NetTestViewModel, ActivityNetBinding>() {
 
     // 网络请求业务，可以看作是P层
     override fun initNet() {
-        // 网络请求
-        presenter.requestNet(this)
+        // 网络请求,可以控制页面
+        presenter.requestNet(pageState)
     }
 
     inner class Click {
         fun requestNet() {
-            presenter.requestNetShowDialog(this@NetMvvmActivity)
+            // 网络请求，可以控制Dialog
+            presenter.requestNetShowDialog(dialogState)
         }
     }
 

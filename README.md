@@ -5,7 +5,8 @@
 * 项目里有大量的实例，可以参考查看。
 
 ### 核心类：
-* BaseActivity <- AppActivity <- BindActivity 
+
+* BaseActivity <- AppActivity <- BindActivity
 * BaseFragment <- AppFragment <- BindFragment
 
 ### 引入
@@ -34,7 +35,7 @@ android {
     }
 }
 // MVVM基本库
-implementation 'com.github.wenkency:base-mvvm:1.9.1'
+implementation 'com.github.wenkency:base-mvvm:1.9.2'
 
 // lifecycle扩展库：ViewModel + LiveData
 def lifecycle_version = "2.4.1"
@@ -79,6 +80,59 @@ class BaseApplication : Application() {
 ```
 
 ### 使用方式
+
+```
+/**
+ * 测试页面
+ * 结合多个ViewModel的写法
+ * 1.一个ViewModel负责UI显示
+ * 2.一个ViewModel负责数据请求
+ * 3. 还添加网络请求、加载页面、统一Dialog显示
+ */
+ // NetTestViewModel:显示UI相关
+ // NetPresenterViewModel:网络加载相关
+class NetMvvmActivity : BindActivity<NetTestViewModel, ActivityNetBinding>() {
+    // 数据请求的ViewModel
+    private lateinit var presenter: NetPresenterViewModel
+
+    override fun initTitle(titleBar: DefTitleBar) {
+        titleBar.setTitle("网络测试")
+    }
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_net
+    }
+
+    override fun onBind(binding: ActivityNetBinding, viewModel: NetTestViewModel) {
+        binding.vm = viewModel
+        // 点击事件
+        binding.click = Click()
+        // 初始化网络请求
+        presenter = getViewModel(NetPresenterViewModel::class.java)
+    }
+
+    override fun initViews() {
+        // 网络请求数据结果
+        presenter.result.observe(this) {
+            viewModel.text.value = it
+        }
+    }
+
+    // 网络请求业务，可以看作是P层
+    override fun initNet() {
+        // 网络请求,可以控制页面
+        presenter.requestNet(pageState)
+    }
+
+    inner class Click {
+        fun requestNet() {
+            // 网络请求，可以控制Dialog
+            presenter.requestNetShowDialog(dialogState)
+        }
+    }
+
+}
+```
 
 ```
 /**

@@ -11,6 +11,6 @@ abstract class ShareActivity<M : ViewModel, T : ViewDataBinding> : BindActivity<
     lateinit var shareViewModel: ShareViewModel
     override fun initData() {
         // 这样创建出来只有一份
-        shareViewModel = getAppViewModel(ShareViewModel::class.java)
+        shareViewModel = getShareViewModel(ShareViewModel::class.java)
     }
 }
