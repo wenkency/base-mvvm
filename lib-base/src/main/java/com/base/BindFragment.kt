@@ -69,8 +69,8 @@ abstract class BindFragment<M : ViewModel, T : ViewDataBinding> : AppFragment() 
     /**
      * 只有一份，公共用的，数据共享
      */
-    open fun <T : ViewModel> getAppViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getAppViewModel(getAppActivity(), clazz)
+    open fun <T : ViewModel> getShareViewModel(clazz: Class<T>): T {
+        return ViewModelUtils.getShareViewModel(getAppActivity().application, clazz)
     }
 
 }

@@ -16,7 +16,7 @@ abstract class DialogCallback<T>(
         activity?.showDialog()
     }
 
-    override fun onSucceed(data: T) {
+    override fun onSucceed(data: T, client: RestClient) {
         onLoadSucceed(data)
         activity?.dismissDialog(isDestroy)
         activity = null

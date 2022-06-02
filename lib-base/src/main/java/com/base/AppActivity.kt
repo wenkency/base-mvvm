@@ -115,22 +115,37 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
 
 
     open fun showLoading(isShowContent: Boolean = false) {
+        if (isDestroy) {
+            return
+        }
         loadingManager?.showLoading(isShowContent)
     }
 
     open fun showRetry() {
+        if (isDestroy) {
+            return
+        }
         loadingManager?.showRetry()
     }
 
     open fun showNetOrDataError() {
+        if (isDestroy) {
+            return
+        }
         loadingManager?.showNetOrDataError(applicationContext)
     }
 
     open fun showContent() {
+        if (isDestroy) {
+            return
+        }
         loadingManager?.showContent()
     }
 
     open fun showEmpty() {
+        if (isDestroy) {
+            return
+        }
         loadingManager?.showEmpty()
     }
 }

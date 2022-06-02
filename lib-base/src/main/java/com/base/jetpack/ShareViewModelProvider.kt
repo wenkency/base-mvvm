@@ -1,6 +1,5 @@
 package com.base.jetpack
 
-import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -8,9 +7,9 @@ import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 
 /**
- * 数据共享用
+ * 提供创建共享数据的ViewModel
  */
-object BaseViewModel : ViewModelStoreOwner {
+object ShareViewModelProvider : ViewModelStoreOwner {
 
 
     private var viewModelStore: ViewModelStore? = null
@@ -29,12 +28,12 @@ object BaseViewModel : ViewModelStoreOwner {
         return factory!!
     }
 
-    private fun getViewModelProvider(activity: Activity): ViewModelProvider {
-        return ViewModelProvider(this, getFactory(activity.application))
+    private fun getViewModelProvider(application: Application): ViewModelProvider {
+        return ViewModelProvider(this, getFactory(application))
     }
 
-    fun <T : ViewModel> getViewModel(activity: Activity, clazz: Class<T>): T {
-        return getViewModelProvider(activity).get(clazz)
+    fun <T : ViewModel> getViewModel(application: Application, clazz: Class<T>): T {
+        return getViewModelProvider(application).get(clazz)
     }
 
     fun clear() {

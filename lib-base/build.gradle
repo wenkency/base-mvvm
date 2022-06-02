@@ -6,7 +6,7 @@ plugins {
     id 'maven-publish'
 }
 group = 'com.github.wenkency'
-version = '1.9.1'
+version = '1.9.2'
 afterEvaluate {
     publishing {
         publications {
@@ -15,7 +15,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.wenkency'
                 artifactId = 'android-mvvm'
-                version = '1.9.1'
+                version = '1.9.2'
             }
         }
     }
@@ -26,8 +26,8 @@ android {
     defaultConfig {
         minSdkVersion this.app.minSdkVersion
         targetSdkVersion this.app.targetSdkVersion
-        versionCode 191
-        versionName "1.9.1"
+        versionCode 192
+        versionName "1.9.2"
     }
 
     buildTypes {

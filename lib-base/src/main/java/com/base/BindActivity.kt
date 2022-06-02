@@ -67,7 +67,7 @@ abstract class BindActivity<M : ViewModel, T : ViewDataBinding> : AppActivity() 
      * 只有一份，公共用的，数据共享
      */
     open fun <T : ViewModel> getAppViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getAppViewModel(getAppActivity(), clazz)
+        return ViewModelUtils.getShareViewModel(application, clazz)
     }
 
 }

@@ -5,9 +5,9 @@ import com.retrofit.callback.BeanCallback
 import com.retrofit.core.RestClient
 
 /**
- * 这个是带Loading的封装
+ * 这个是带页面加载状态的封装
  */
-abstract class LoadCallback<T>(
+abstract class PageStateCallback<T>(
     var activity: AppActivity? = null,
     var isShowContent: Boolean = true
 ) : BeanCallback<T>() {
@@ -16,7 +16,7 @@ abstract class LoadCallback<T>(
         activity?.showLoading(isShowContent)
     }
 
-    override fun onSucceed(data: T) {
+    override fun onSucceed(data: T, client: RestClient) {
         onLoadSucceed(data)
         activity?.showContent()
         activity = null

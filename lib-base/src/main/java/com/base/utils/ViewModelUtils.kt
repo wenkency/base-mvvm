@@ -1,11 +1,10 @@
 package com.base.utils
 
-import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.base.jetpack.BaseViewModel
+import com.base.jetpack.ShareViewModelProvider
 
 /**
  * 创建ViewModel工具类
@@ -36,7 +35,7 @@ object ViewModelUtils {
     /**
      * 只有一份，公共用的，数据共享
      */
-    open fun <T : ViewModel> getAppViewModel(activity: Activity, clazz: Class<T>): T {
-        return BaseViewModel.getViewModel(activity, clazz)
+    open fun <T : ViewModel> getShareViewModel(application: Application, clazz: Class<T>): T {
+        return ShareViewModelProvider.getViewModel(application, clazz)
     }
 }
