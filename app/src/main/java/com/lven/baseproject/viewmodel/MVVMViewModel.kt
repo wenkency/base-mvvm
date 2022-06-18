@@ -7,7 +7,8 @@ import com.retrofit.callback.BeanCallback
 import com.retrofit.core.RestClient
 
 class MVVMViewModel : ViewModel() {
-    var name: BaseMutableLiveData<String> = BaseMutableLiveData("MVVM")
+    var name: BaseMutableLiveData<String> = BaseMutableLiveData("点击请求网络")
+
     fun request() {
         RetrofitPresenter.post(this, "post", object : BeanCallback<String>() {
             override fun onSucceed(t: String, client: RestClient) {
@@ -15,6 +16,4 @@ class MVVMViewModel : ViewModel() {
             }
         })
     }
-
-
 }
