@@ -26,6 +26,7 @@ class FragmentViewPagerActivity :
     }
 
     override fun onBind(binding: ActivityFragmentViewPagerBinding, viewModel: FragmentViewModel) {
+
     }
 
 
@@ -53,7 +54,7 @@ class FragmentViewPagerActivity :
         if (findFragment == null) {
             findFragment = FragmentTest().apply {
                 arguments = Bundle()
-                arguments!!.putInt("position", position)
+                arguments?.putInt("position", position)
             }
             map[position] = findFragment
         }

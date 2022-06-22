@@ -33,7 +33,9 @@ class MVVMActivity : BindActivity<MVVMViewModel, ActivityMvvmBinding>() {
             }
         // 订阅网络请求。
         viewModel.name.observe(this) {
-            Toast.makeText(getAppActivity(), it, Toast.LENGTH_SHORT).show()
+            it?.let {
+                Toast.makeText(getAppActivity(), it, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
