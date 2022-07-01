@@ -35,7 +35,6 @@ abstract class AppFragment : BaseFragment(), AppPagerListener {
      * 初始化Loading后调用，如有需要可以重写这个方法去调用showLoading()
      */
     open fun afterInitLoading() {
-        // showLoading()
         showContent()
     }
 
