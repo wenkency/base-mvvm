@@ -43,7 +43,7 @@ implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
 // 通用标题栏：https://github.com/wenkency/titlebar
-implementation 'com.github.wenkency:titlebar:2.0.5'
+implementation 'com.github.wenkency:titlebar:2.0.7'
 // 通用加载页面布局：https://github.com/wenkency/loading
 implementation 'com.github.wenkency:loading:1.5.0'
 

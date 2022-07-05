@@ -10,7 +10,7 @@ class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // 配置返回按钮，参考TitleBarConfig，项目：https://github.com/wenkency/titlebar
-        BaseConfig.IC_TITLE_BACK = R.mipmap.ic_title_back
+        // BaseConfig.IC_TITLE_BACK = R.mipmap.ic_title_back
 
         // 配置加载页面，实际用自己UI设置的页面：https://github.com/wenkency/loading
         LoadingManager.BASE_LOADING_LAYOUT_ID = R.layout.loading_pager_loading

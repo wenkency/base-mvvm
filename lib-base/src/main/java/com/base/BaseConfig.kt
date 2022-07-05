@@ -7,7 +7,7 @@ object BaseConfig {
     /**
      * 返回按钮，用户可以在Application更改
      */
-    var IC_TITLE_BACK: Int = 0
+    var IC_TITLE_BACK: Int = R.mipmap.ic_title_back
 
     /**
      * 返回按钮图片过滤颜色
