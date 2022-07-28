@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
@@ -8,6 +8,66 @@
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!--下面是轮子哥的主题配置，可以参考-->
+        <!--
+                &lt;!&ndash; 窗口背景颜色 &ndash;&gt;
+                <item name="android:windowBackground">@color/common_window_background_color</item>
+                &lt;!&ndash; 应用的主要色调，ActionBar Toolbar 默认使用该颜色 &ndash;&gt;
+                <item name="colorPrimary">@color/common_primary_color</item>
+                &lt;!&ndash; 应用的主要暗色调，状态栏默认使用该颜色 &ndash;&gt;
+                <item name="colorPrimaryDark">@color/common_primary_dark_color</item>
+                &lt;!&ndash; 应用的强调色，CheckBox RadioButton Switch 等一般控件的选中效果默认采用该颜色 &ndash;&gt;
+                <item name="colorAccent">@color/common_accent_color</item>
+                &lt;!&ndash; 默认文本颜色，Button、TextView 的文字颜色 &ndash;&gt;
+                <item name="android:textColor">@color/common_text_color</item>
+                &lt;!&ndash; 默认字体大小，Button、TextView 的字体大小 &ndash;&gt;
+                <item name="android:textSize">@dimen/sp_14</item>
+                &lt;!&ndash; 默认提示颜色，Button、TextView 的提示文字颜色 &ndash;&gt;
+                <item name="android:textColorHint">@color/common_text_hint_color</item>
+                &lt;!&ndash; ActionMode 覆盖 Actionbar 不被顶下来 &ndash;&gt;
+                <item name="windowActionModeOverlay">true</item>
+                <item name="android:windowContentOverlay">@null</item>
+                &lt;!&ndash; ActionMode 的颜色 &ndash;&gt;
+                <item name="actionModeBackground">@color/common_primary_color</item>
+                &lt;!&ndash; 解决 Android 5.1 及以上版本 Button 英文字符串自动变大写的问题 &ndash;&gt;
+                <item name="android:textAllCaps">false</item>
+                &lt;!&ndash; 解决 ImageView 不能自动等比拉伸图片的问题 &ndash;&gt;
+                <item name="android:adjustViewBounds">true</item>
+                &lt;!&ndash; 默认隐藏输入法，开启这个选项后会导致输入对话框在关闭之后不能关闭软键盘 &ndash;&gt;
+                &lt;!&ndash;<item name="android:windowSoftInputMode">stateHidden</item>&ndash;&gt;
+                &lt;!&ndash; 关闭 RecyclerView NestedScrollView ViewPager 水波纹效果 &ndash;&gt;
+                <item name="android:overScrollMode">never</item>
+                &lt;!&ndash; 关闭 TextView 自带的文字间距 &ndash;&gt;
+                <item name="android:includeFontPadding">false</item>
+                -->
+    </style>
+
+    <!--默认主题-->
+    <style name="DefaultTheme" parent="AppTheme">
+        <!--Window背景色-->
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--Window是否透明-->
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">false</item>
+        <!--状态栏颜色-->
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <!--虚拟返回按键是否透明-->
+        <item name="android:windowTranslucentNavigation" tools:ignore="NewApi">true</item>
+        <!--虚拟返回按键颜色-->
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/transparent
+        </item>
+    </style>
+
+    <!--禁止预览用-->
+    <style name="AppNoPreviewTheme" parent="DefaultTheme">
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <!--启动页面用-->
+    <style name="AppTransTheme" parent="DefaultTheme">
+        <item name="android:fitsSystemWindows">false</item>
+        <!--这里设置启动图片-->
+        <item name="android:windowBackground">@null</item>
     </style>
 
 </resources>
