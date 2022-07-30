@@ -69,5 +69,5 @@ dependencies {
     compileOnly "androidx.constraintlayout:constraintlayout:2.1.3"
     // loading title
     compileOnly "com.github.wenkency:loading:1.5.0"
-    compileOnly "com.github.wenkency:titlebar:2.0.7"
+    compileOnly "com.github.wenkency:titlebar:2.0.8"
 }
