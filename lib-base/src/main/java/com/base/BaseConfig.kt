@@ -34,6 +34,16 @@ object BaseConfig {
      */
     var TITLE_CONTENT_COLOR = Color.parseColor("#6200EE")
 
+    /**
+     * 标题字体是否黑色
+     */
+    var TITLE_DARK = false
+
+    /**
+     * true 时fitSystem 为false
+     */
+    var TITLE_TRANS = true
+
     // ===================Dialog统一配置=================
     var dialog: IDialog? = null
 

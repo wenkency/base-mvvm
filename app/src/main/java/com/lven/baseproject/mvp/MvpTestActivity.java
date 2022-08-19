@@ -46,14 +46,37 @@ public class MvpTestActivity extends MvpActivity<MainPresenter> implements IMain
     public void initTitle(DefTitleBar titleBar) {
         titleBar.setTitle("MVP测试");
         // 不要返回按钮
-        // titleBar.clearBackImage();
-        titleBar.setRightTextColor(Color.WHITE);
         titleBar.setRightText("测试", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MvpTestActivity.this, "测试", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean titleDark() {
+        return true;
+    }
+
+    @Override
+    public int titleBackImageFilterColor() {
+        return Color.BLACK;
+    }
+
+    @Override
+    public int titleColor() {
+        return Color.WHITE;
+    }
+
+    @Override
+    public int titleTextColor() {
+        return Color.RED;
+    }
+
+    @Override
+    public int titleRightTextColor() {
+        return Color.RED;
     }
 
     @Override

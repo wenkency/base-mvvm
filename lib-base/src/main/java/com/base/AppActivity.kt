@@ -26,21 +26,47 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
         // 初始化标题
         if (isNeedTitle()) {
             titleBar = DefTitleBuilder(this) // 返回按钮
-                .setBackImageRes(BaseConfig.IC_TITLE_BACK)
-                .setBackImageFilterColor(BaseConfig.IC_TITLE_BACK_FILTER_COLOR)
+                .setBackImageRes(titleBackImageRes())
+                .setBackImageFilterColor(titleBackImageFilterColor())
                 .build()
             // 主题风格
             titleBar?.let {
-                it.colorStyle(BaseConfig.TITLE_CONTENT_COLOR, BaseConfig.CONTENT_COLOR)
+                it.colorStyle(titleColor(), titleContentColor(), titleDark(), titleTrans())
                 // 标题字体颜色
-                it.setTitleColor(BaseConfig.TITLE_TEXT_COLOR)
-                it.setRightTextColor(BaseConfig.TITLE_RIGHT_TEXT_COLOR)
+                it.setTitleColor(titleTextColor())
+                it.setRightTextColor(titleRightTextColor())
                 // 初始化设置Title
                 initTitle(it)
             }
 
         }
     }
+
+    // 标题相关============================================
+    // 返回按钮图片
+    open fun titleBackImageRes() = BaseConfig.IC_TITLE_BACK
+
+    // 返回按钮图片过滤色，默认为白色
+    open fun titleBackImageFilterColor() = BaseConfig.IC_TITLE_BACK_FILTER_COLOR
+
+    // 标题颜色
+    open fun titleColor() = BaseConfig.TITLE_CONTENT_COLOR
+
+    // 内容颜色
+    open fun titleContentColor() = BaseConfig.CONTENT_COLOR
+
+    // 状态字体是否为黑色，默认白色
+    open fun titleDark() = BaseConfig.TITLE_DARK
+
+    // 如果true 就是fitSystem为false 反之就是 true
+    open fun titleTrans() = BaseConfig.TITLE_TRANS
+
+    // 标题字体颜色
+    open fun titleTextColor() = BaseConfig.TITLE_TEXT_COLOR
+
+    // 标题右边字体颜色
+    open fun titleRightTextColor() = BaseConfig.TITLE_RIGHT_TEXT_COLOR
+    // 标题相关============================================
 
     /**
      * 要不要标题，默认是要的

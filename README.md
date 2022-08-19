@@ -35,7 +35,7 @@ android {
     }
 }
 // MVVM基本库
-implementation 'com.github.wenkency:base-mvvm:1.9.2'
+implementation 'com.github.wenkency:base-mvvm:1.9.3'
 
 // lifecycle扩展库：ViewModel + LiveData
 def lifecycle_version = "2.4.1"
@@ -43,7 +43,7 @@ implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
 // 通用标题栏：https://github.com/wenkency/titlebar
-implementation 'com.github.wenkency:titlebar:2.0.7'
+implementation 'com.github.wenkency:titlebar:2.1.0'
 // 通用加载页面布局：https://github.com/wenkency/loading
 implementation 'com.github.wenkency:loading:1.5.0'
 

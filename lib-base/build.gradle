@@ -5,8 +5,8 @@ plugins {
     // 远程仓库
     id 'maven-publish'
 }
-def libVersion = "1.9.2"
-def libCode = 192
+def libVersion = "1.9.3"
+def libCode = 193
 group = 'com.github.wenkency'
 version = libVersion
 afterEvaluate {
@@ -69,5 +69,5 @@ dependencies {
     compileOnly "androidx.constraintlayout:constraintlayout:2.1.3"
     // loading title
     compileOnly "com.github.wenkency:loading:1.5.0"
-    compileOnly "com.github.wenkency:titlebar:2.0.8"
+    compileOnly "com.github.wenkency:titlebar:2.1.0"
 }
