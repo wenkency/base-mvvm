@@ -35,6 +35,12 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
                 // 标题字体颜色
                 it.setTitleColor(titleTextColor())
                 it.setRightTextColor(titleRightTextColor())
+                if (navigationBarTrans()) {
+                    it.navigationBarTrans()
+                }
+                if (hideNavigationBar()) {
+                    it.hideNav()
+                }
                 // 初始化设置Title
                 initTitle(it)
             }
@@ -43,6 +49,11 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
     }
 
     // 标题相关============================================
+    open fun hideNavigationBar() = BaseConfig.hideNavigationBar
+
+    // 虚拟键盘透明
+    open fun navigationBarTrans() = BaseConfig.navigationBarTrans
+
     // 返回按钮图片
     open fun titleBackImageRes() = BaseConfig.IC_TITLE_BACK
 

@@ -3,6 +3,7 @@ package com.lven.baseproject.comm
 import android.app.Activity
 import cn.carhouse.alert.QuickBuilder
 import cn.carhouse.alert.QuickDialog
+import cn.carhouse.titlebar.utils.TitleBarUtil
 import com.base.IDialog
 import com.lven.baseproject.R
 
@@ -18,6 +19,8 @@ class AppDialog : IDialog {
                 .isSetBackground(false)
                 .isDimEnabled(true)
                 .build()
+            // 隐藏虚拟键盘
+            TitleBarUtil.hideNav(dialog?.window)
         }
         dialog?.let {
             if (!it.isShowing) {

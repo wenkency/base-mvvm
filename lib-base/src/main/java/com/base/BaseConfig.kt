@@ -44,6 +44,16 @@ object BaseConfig {
      */
     var TITLE_TRANS = true
 
+    /**
+     * 虚拟键盘透明
+     */
+    var navigationBarTrans = true
+
+    /**
+     * 隐藏虚拟键盘
+     */
+    var hideNavigationBar = true
+
     // ===================Dialog统一配置=================
     var dialog: IDialog? = null
 
