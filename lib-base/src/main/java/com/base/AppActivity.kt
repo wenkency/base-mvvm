@@ -13,9 +13,10 @@ import com.lven.loading.listener.AppPagerListener
  * 带标题和加载页面的Activity
  */
 abstract class AppActivity : BaseActivity(), AppPagerListener {
-
+    // 标题
     var titleBar: DefTitleBar? = null
 
+    // 加载页面:内容页面、空页面、重试页面、加载页面、数据错误页面
     var loadingManager: LoadingManager? = null
 
 
@@ -133,6 +134,7 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
         }
     }
 
+    // 显示加载中页面时，是否显示内容页面
     open fun isShowContent(): Boolean {
         return false
     }
@@ -148,31 +150,37 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
         return AppLoadingListener(this)
     }
 
+    // 加载页面的父类
     override fun getLoadingParent(): Any {
         return rootView
     }
 
+    // 是否需要加载页面
     override fun isNeedLoading(): Boolean {
         return true
     }
 
-
+    // 显示加载页面，默认不显示内容页面
     open fun showLoading(isShowContent: Boolean = false) {
         loadingManager?.showLoading(isShowContent)
     }
 
+    // 显示重试页面
     open fun showRetry() {
         loadingManager?.showRetry()
     }
 
+    // 显示数据出错页面
     open fun showNetOrDataError() {
         loadingManager?.showNetOrDataError(applicationContext)
     }
 
+    // 显示内容页面
     open fun showContent() {
         loadingManager?.showContent()
     }
 
+    // 显示空页面
     open fun showEmpty() {
         loadingManager?.showEmpty()
     }
