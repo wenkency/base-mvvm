@@ -16,6 +16,7 @@ import com.lven.baseproject.mvp.view.IMainView;
 import java.util.List;
 
 import cn.carhouse.titlebar.DefTitleBar;
+import cn.carhouse.titlebar.utils.TitleBarUtil;
 
 /**
  * MVP写法
@@ -67,6 +68,11 @@ public class MvpTestActivity extends MvpActivity<MainPresenter> implements IMain
     @Override
     public int titleColor() {
         return Color.WHITE;
+    }
+
+    @Override
+    public int titleContentColor() {
+        return Color.TRANSPARENT;
     }
 
     @Override

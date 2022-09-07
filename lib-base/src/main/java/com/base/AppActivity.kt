@@ -32,15 +32,16 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
             // 主题风格
             titleBar?.let {
                 it.colorStyle(titleColor(), titleContentColor(), titleDark(), titleTrans())
+                it.setRightTextColor(titleRightTextColor())
                 // 标题字体颜色
                 it.setTitleColor(titleTextColor())
-                it.setRightTextColor(titleRightTextColor())
                 if (navigationBarTrans()) {
                     it.navigationBarTrans()
                 }
                 if (hideNavigationBar()) {
-                    it.hideNav()
+                    it.hideNav(titleDark())
                 }
+
                 // 初始化设置Title
                 initTitle(it)
             }

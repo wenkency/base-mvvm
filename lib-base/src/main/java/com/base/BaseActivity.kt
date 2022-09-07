@@ -40,7 +40,7 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 1. 初始化生命周期监听
      */
-    fun registerLifecycle() {
+    private fun registerLifecycle() {
         // 这里是自动关闭软件键盘
         lifecycle.addObserver(object : BaseLifecycleObserver() {
             override fun onDestroy(owner: LifecycleOwner) {

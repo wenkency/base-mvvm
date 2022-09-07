@@ -5,8 +5,8 @@ plugins {
     // 远程仓库
     id 'maven-publish'
 }
-def libVersion = "1.9.3"
-def libCode = 193
+def libVersion = "1.9.4"
+def libCode = 194
 group = 'com.github.wenkency'
 version = libVersion
 afterEvaluate {
