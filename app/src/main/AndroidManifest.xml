@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
+
         <activity
             android:name=".TestActivity"
             android:exported="true">

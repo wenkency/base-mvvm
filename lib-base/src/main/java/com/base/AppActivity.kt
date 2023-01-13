@@ -131,6 +131,9 @@ abstract class AppActivity : BaseActivity(), AppPagerListener {
                     initNet()
                 }
             }
+            else -> {
+
+            }
         }
     }
 

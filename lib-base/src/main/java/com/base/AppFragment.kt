@@ -57,6 +57,9 @@ abstract class AppFragment : BaseFragment(), AppPagerListener {
                     initNet()
                 }
             }
+            else -> {
+
+            }
         }
     }
 
