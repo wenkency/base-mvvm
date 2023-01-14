@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModel
 import com.base.jetpack.BaseLifecycleObserver
 import com.base.jetpack.LiveDataBus
 import com.base.utils.FragmentUtils
 import com.base.utils.KeyBordUtils
+import com.base.utils.ViewModelUtils
 
 /**
  * 通用的Activity基类
@@ -189,5 +191,27 @@ abstract class BaseActivity : AppCompatActivity() {
     // 可以复写这个页面改变关闭动画
     open fun finishActivityAnim() {
         overridePendingTransition(R.anim.activity_back, R.anim.activity_finish)
+    }
+
+    // ===ViewModel 提供一些通用的方法子类用======================================================
+    /**
+     * 子类用
+     */
+    open fun <T : ViewModel> getViewModel(clazz: Class<T>): T {
+        return ViewModelUtils.getViewModel(this, clazz)
+    }
+
+    /**
+     * 子类用
+     */
+    open fun <T : ViewModel> getAndroidViewModel(clazz: Class<T>): T {
+        return ViewModelUtils.getAndroidViewModel(this, application, clazz)
+    }
+
+    /**
+     * 只有一份，公共用的，数据共享
+     */
+    open fun <T : ViewModel> getShareViewModel(clazz: Class<T>): T {
+        return ViewModelUtils.getShareViewModel(application, clazz)
     }
 }

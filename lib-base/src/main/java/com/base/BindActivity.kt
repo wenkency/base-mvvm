@@ -104,26 +104,6 @@ abstract class BindActivity<M : ViewModel, T : ViewDataBinding> : AppActivity() 
      */
     abstract fun onBind(binding: T, viewModel: M)
 
-    // ===提供一些通用的方法子类用======================================================
-    /**
-     * 子类用
-     */
-    open fun <T : ViewModel> getViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getViewModel(this, clazz)
-    }
 
-    /**
-     * 子类用
-     */
-    open fun <T : ViewModel> getAndroidViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getAndroidViewModel(this, application, clazz)
-    }
-
-    /**
-     * 只有一份，公共用的，数据共享
-     */
-    open fun <T : ViewModel> getShareViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getShareViewModel(application, clazz)
-    }
 
 }

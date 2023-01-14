@@ -108,26 +108,6 @@ abstract class BindFragment<M : ViewModel, T : ViewDataBinding> : AppFragment() 
      * 提供子类绑定用
      */
     abstract fun onBind(binding: T, viewModel: M)
-    // ===提供一些通用的方法子类用======================================================
-    /**
-     * 子类用
-     */
-    open fun <T : ViewModel> getViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getViewModel(this, clazz)
-    }
 
-    /**
-     * 子类用
-     */
-    open fun <T : ViewModel> getAndroidViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getAndroidViewModel(this, getAppActivity().application, clazz)
-    }
-
-    /**
-     * 只有一份，公共用的，数据共享
-     */
-    open fun <T : ViewModel> getShareViewModel(clazz: Class<T>): T {
-        return ViewModelUtils.getShareViewModel(getAppActivity().application, clazz)
-    }
 
 }
