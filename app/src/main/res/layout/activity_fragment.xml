@@ -5,11 +5,11 @@
 
         <variable
             name="viewModel"
-            type="com.lven.baseproject.viewmodel.FragmentViewModel" />
+            type="com.boardour.basemvvm.viewmodel.FragmentViewModel" />
 
         <variable
             name="click"
-            type="com.lven.baseproject.FragmentActivity.OnClick" />
+            type="com.boardour.basemvvm.FragmentActivity.OnClick" />
     </data>
 
     <FrameLayout

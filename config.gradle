@@ -1,9 +1,0 @@
-ext {
-// 编译信息
-    app = [
-            compileSdkVersion: 33,
-            minSdkVersion    : 14,
-            targetSdkVersion : 33,
-            versionCode      : 47,
-    ]
-}

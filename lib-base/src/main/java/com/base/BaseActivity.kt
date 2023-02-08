@@ -12,6 +12,7 @@ import com.base.jetpack.LiveDataBus
 import com.base.utils.FragmentUtils
 import com.base.utils.KeyBordUtils
 import com.base.utils.ViewModelUtils
+import com.boardour.lib_mvvm.R
 
 /**
  * 通用的Activity基类

@@ -2,6 +2,7 @@ package com.base
 
 import android.app.Activity
 import android.graphics.Color
+import com.boardour.lib_mvvm.R
 
 object BaseConfig {
     /**

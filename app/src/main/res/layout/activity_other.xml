@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.lven.baseproject.viewmodel.OtherViewModel" />
+            type="com.boardour.basemvvm.viewmodel.OtherViewModel" />
 
         <variable
             name="click"
-            type="com.lven.baseproject.OtherActivity.OtherClick" />
+            type="com.boardour.basemvvm.OtherActivity.OtherClick" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

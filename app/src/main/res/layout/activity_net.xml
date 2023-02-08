@@ -6,11 +6,11 @@
 
         <variable
             name="vm"
-            type="com.lven.baseproject.viewmodel.NetTestViewModel" />
+            type="com.boardour.basemvvm.viewmodel.NetTestViewModel" />
 
         <variable
             name="click"
-            type="com.lven.baseproject.NetMvvmActivity.Click" />
+            type="com.boardour.basemvvm.NetMvvmActivity.Click" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

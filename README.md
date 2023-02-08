@@ -35,7 +35,7 @@ android {
     }
 }
 // MVVM基本库
-implementation 'com.github.wenkency:base-mvvm:1.9.4'
+implementation 'com.github.wenkency:base-mvvm:1.9.5'
 
 // lifecycle扩展库：ViewModel + LiveData
 def lifecycle_version = "2.4.1"

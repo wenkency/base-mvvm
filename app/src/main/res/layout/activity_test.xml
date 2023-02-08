@@ -6,7 +6,7 @@
 
         <variable
             name="click"
-            type="com.lven.baseproject.TestActivity.TestClick" />
+            type="com.boardour.basemvvm.TestActivity.TestClick" />
     </data>
 
     <ScrollView

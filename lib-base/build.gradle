@@ -1,14 +1,43 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
     // 远程仓库
     id 'maven-publish'
 }
-def libVersion = "1.9.4"
-def libCode = 194
+android {
+    namespace 'com.boardour.lib_mvvm'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 14
+        targetSdk 33
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    // 这个是使用dataBinding
+    android.buildFeatures {
+        dataBinding true
+    }
+}
+
+// 远程仓库相关
+def libVersion = "1.9.5"
 group = 'com.github.wenkency'
 version = libVersion
+
 afterEvaluate {
     publishing {
         publications {
@@ -22,39 +51,12 @@ afterEvaluate {
         }
     }
 }
-android {
-    compileSdkVersion this.app.compileSdkVersion
+// 远程仓库相关
 
-    defaultConfig {
-        minSdkVersion this.app.minSdkVersion
-        targetSdkVersion this.app.targetSdkVersion
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    // 这个是使用dataBinding
-    buildFeatures {
-        dataBinding true
-    }
-}
-
-// activity统一版本
-configurations.all {
-    resolutionStrategy {
-        resolutionStrategy.eachDependency { details ->
-            if (details.requested.group == 'androidx.activity') {
-                details.useVersion "1.4.0"
-            }
-        }
-    }
-}
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
     // appcompat
     compileOnly "androidx.appcompat:appcompat:1.5.1"
     // ViewModel LiveData
