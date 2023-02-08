@@ -4,8 +4,28 @@ plugins {
     // 远程仓库
     id 'maven-publish'
 }
+// ==== 远程仓库相关 ====
+def libVersion = "1.9.5"
+group = 'com.github.wenkency'
+version = libVersion
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.wenkency'
+                artifactId = 'android-mvvm'
+                version = libVersion
+            }
+        }
+    }
+}
+// ==== 远程仓库相关 ====
+
 android {
-    namespace 'com.boardour.lib_mvvm'
+    namespace 'com.boardour.libmvvm'
     compileSdk 33
 
     defaultConfig {
@@ -33,37 +53,14 @@ android {
     }
 }
 
-// 远程仓库相关
-def libVersion = "1.9.5"
-group = 'com.github.wenkency'
-version = libVersion
-
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.wenkency'
-                artifactId = 'android-mvvm'
-                version = libVersion
-            }
-        }
-    }
-}
-// 远程仓库相关
-
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-
     // appcompat
     compileOnly "androidx.appcompat:appcompat:1.5.1"
     // ViewModel LiveData
     def lifecycle_version = "2.5.1"
     compileOnly "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     compileOnly "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-
     // kt core
     compileOnly "androidx.core:core-ktx:1.9.0"
     compileOnly "androidx.constraintlayout:constraintlayout:2.1.4"
